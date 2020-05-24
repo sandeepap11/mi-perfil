@@ -6,7 +6,7 @@ import {
   Route
   // Link
 } from "react-router-dom";
-import Main from "./components/profile/Main";
+import Main from "./components/profile/main/Main";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../styles/profile/IconIntro.css";
+import "../../../styles/profile/IconIntro.css";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 interface IconIntroProps {

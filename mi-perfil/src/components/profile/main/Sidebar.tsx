@@ -8,7 +8,7 @@ import {
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
 import MenuItem from "./MenuItem";
-import "../../styles/profile/Sidebar.css";
+import "../../../styles/profile/Sidebar.css";
 import IconIntro from "./IconIntro";
 
 export interface MenuItemType {
