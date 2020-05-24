@@ -1,0 +1,10 @@
+.app-main {
+    display: flex;
+    height: 100vh;
+}
+
+.main-page {
+    background-color: rebeccapurple;
+    flex: 1;
+    min-width: 800px;
+}

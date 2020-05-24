@@ -1,0 +1,51 @@
+.menu-sidebar {
+    background-color: black;
+    width: 10%;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item-main, .settings-menu {
+    color: #ddd;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    transition: background-color .5s, color .5s;
+}
+
+.menu-item-main:hover {
+    background-color: #eee;
+    color: #000;
+    transition: background-color .5s, color .5s;
+}
+
+.settings-menu {
+    flex: 1;
+    align-items: flex-end;
+    padding-bottom: 50%;
+    font-size: 30px;
+    transition: color .5s;
+}
+
+.settings-menu-selected {
+    color: goldenrod;
+    transition: color .5s;
+    animation-name:             rotate; 
+    animation-duration:         5s; 
+    animation-iteration-count:  infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to { 
+      transform: rotate(360deg);
+    }
+  }
