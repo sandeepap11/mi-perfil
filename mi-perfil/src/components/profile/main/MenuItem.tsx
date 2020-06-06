@@ -10,27 +10,35 @@ interface MenuItemProps {
 
 const MenuItem = ({ menuItem, isSelected }: MenuItemProps) => {
   return (
-    <div
-      className={menuItem.isSettings ? "settings-menu" : "menu-item-main"}
-      style={
-        isSelected && !menuItem.isSettings
-          ? {
-              backgroundColor: "crimson",
-              color: "goldenrod"
-            }
-          : {}
-      }
-    >
-      <Link to={menuItem.path}>
-        <div
-          className={
-            isSelected && menuItem.isSettings ? "settings-menu-selected" : ""
-          }
-        >
-          <FontAwesomeIcon icon={menuItem.iconName} />
+    <>
+      {menuItem.isSettings ? (
+        <div className={"settings-menu"}>
+          <div className={isSelected ? "settings-menu-selected" : ""}>
+            <Link to={menuItem.path} style={{ height: "100%", width: "100%" }}>
+              <FontAwesomeIcon icon={menuItem.iconName} />
+            </Link>
+          </div>
         </div>
-      </Link>
-    </div>
+      ) : (
+        <Link to={menuItem.path} style={{ height: "100%", width: "100%" }}>
+          <div
+            className={"menu-item-main"}
+            style={
+              isSelected
+                ? {
+                    backgroundColor: "crimson",
+                    color: "goldenrod"
+                  }
+                : {}
+            }
+          >
+            <div>
+              <FontAwesomeIcon icon={menuItem.iconName} />
+            </div>
+          </div>
+        </Link>
+      )}
+    </>
   );
 };
 
