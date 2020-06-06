@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   faCog,
   faHome,
@@ -10,28 +10,60 @@ import {
 import MenuItem from "./MenuItem";
 import "../../../styles/profile/Sidebar.css";
 import IconIntro from "./IconIntro";
+import BlogMain from "../blog/BlogMain";
+import About from "../about/About";
+import { withRouter, Redirect } from "react-router";
+
+interface SidebarProps {
+  location: any;
+}
+
+const Sidebar = (props: SidebarProps) => {
+  if (
+    !menuItems.map(menuItem => menuItem.path).includes(props.location.pathname)
+  ) {
+    return <Redirect to={"/blog"} />;
+  }
+
+  return (
+    <nav className="menu-sidebar">
+      {menuItems.map(menuItem => (
+        <MenuItem
+          key={menuItem.id}
+          menuItem={menuItem}
+          isSelected={props.location.pathname.includes(menuItem.path)}
+        />
+      ))}
+    </nav>
+  );
+};
+
+export default withRouter(Sidebar);
 
 export interface MenuItemType {
   id: number;
   name: string;
   iconName: IconDefinition;
   view: any;
+  path: string;
   isSettings: boolean;
 }
 
-const MenuItems: MenuItemType[] = [
+export const menuItems: MenuItemType[] = [
   {
     id: 1,
     name: "Home",
     iconName: faHome,
-    view: <IconIntro iconName={faHome} />,
+    view: <BlogMain />,
+    path: "/blog",
     isSettings: false
   },
   {
     id: 2,
     name: "About",
     iconName: faUser,
-    view: <IconIntro iconName={faUser} />,
+    view: <About />,
+    path: "/about",
     isSettings: false
   },
   {
@@ -39,12 +71,14 @@ const MenuItems: MenuItemType[] = [
     name: "Contact",
     iconName: faPhoneAlt,
     view: <IconIntro iconName={faPhoneAlt} />,
+    path: "/contact",
     isSettings: false
   },
   {
     id: 4,
     name: "Skills",
     iconName: faCheck,
+    path: "/skills",
     view: <IconIntro iconName={faCheck} />,
     isSettings: false
   },
@@ -52,37 +86,8 @@ const MenuItems: MenuItemType[] = [
     id: 5,
     name: "Settings",
     iconName: faCog,
+    path: "/settings",
     view: <IconIntro iconName={faCog} />,
     isSettings: true
   }
 ];
-
-interface SidebarProps {
-  setSelectedView: (selectedView: any) => void;
-}
-
-const Sidebar = ({ setSelectedView }: SidebarProps) => {
-  const [selectedViewState, setSelectedViewState] = useState(MenuItems[0].view);
-
-  useEffect(() => setSelectedView(selectedViewState), []);
-
-  const setSelectedViewMethod = (selectedView: any) => {
-    setSelectedViewState(selectedView);
-    setSelectedView(selectedView);
-  };
-
-  return (
-    <nav className="menu-sidebar">
-      {MenuItems.map(menuItem => (
-        <MenuItem
-          key={menuItem.id}
-          menuItem={menuItem}
-          setSelectedView={setSelectedViewMethod}
-          isSelected={selectedViewState === menuItem.view}
-        />
-      ))}
-    </nav>
-  );
-};
-
-export default Sidebar;

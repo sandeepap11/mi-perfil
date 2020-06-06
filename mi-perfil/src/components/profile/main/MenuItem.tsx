@@ -1,18 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { MenuItemType } from "./Sidebar";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 interface MenuItemProps {
-  setSelectedView: (selectedView: any) => void;
   menuItem: MenuItemType;
   isSelected: boolean;
 }
 
-const MenuItem = ({ setSelectedView, menuItem, isSelected }: MenuItemProps) => {
-  const clickMethod = () => {
-    setSelectedView(menuItem.view);
-  };
-
+const MenuItem = ({ menuItem, isSelected }: MenuItemProps) => {
   return (
     <div
       className={menuItem.isSettings ? "settings-menu" : "menu-item-main"}
@@ -24,15 +20,16 @@ const MenuItem = ({ setSelectedView, menuItem, isSelected }: MenuItemProps) => {
             }
           : {}
       }
-      onClick={clickMethod}
     >
-      <div
-        className={
-          isSelected && menuItem.isSettings ? "settings-menu-selected" : ""
-        }
-      >
-        <FontAwesomeIcon icon={menuItem.iconName} />
-      </div>
+      <Link to={menuItem.path}>
+        <div
+          className={
+            isSelected && menuItem.isSettings ? "settings-menu-selected" : ""
+          }
+        >
+          <FontAwesomeIcon icon={menuItem.iconName} />
+        </div>
+      </Link>
     </div>
   );
 };

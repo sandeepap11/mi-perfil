@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sidebar, { menuItems } from "./Sidebar";
 import "../../../styles/profile/Main.css";
-import Sidebar from "./Sidebar";
-import Page from "./Page";
 
-const Main = () => {
-  const [selectedView, useSelectedView] = useState("");
+export interface MainProps {}
 
+const Main = (props: MainProps) => {
   return (
-    <div className="app-main">
-      <Sidebar setSelectedView={useSelectedView} />
-      <Page view={selectedView} />
-    </div>
+    <Router>
+      <div className="main-container">
+        <Sidebar />
+
+        <Switch>
+          {menuItems.map(menuItem => (
+            <Route key={menuItem.id} exact path={menuItem.path}>
+              {menuItem.view}
+            </Route>
+          ))}
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

@@ -1,9 +1,11 @@
 import React from "react";
 
 interface PageProps {
-  view: any;
+  children: any;
 }
 
-const Page = ({ view }: PageProps) => <div className="main-page">{view}</div>;
+const Page = ({ children }: PageProps) => (
+  <div className="main-page">{children}</div>
+);
 
 export default Page;
