@@ -1,7 +1,7 @@
 .menu-sidebar {
   background-color: black;
   width: 10%;
-  min-width: 100px;
+  min-width: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 1.8rem;
   transition: background-color 0.5s, color 0.5s;
 }
 
@@ -29,7 +29,7 @@
   flex: 1;
   align-items: flex-end;
   padding: 50% 0;
-  font-size: 30px;
+  font-size: 3rem;
   transition: color 0.5s;
 }
 

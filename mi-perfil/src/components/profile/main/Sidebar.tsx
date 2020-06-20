@@ -3,8 +3,7 @@ import {
   faCog,
   faHome,
   faUser,
-  faPhoneAlt,
-  faCheck,
+  faImage,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
 import MenuItem from "./MenuItem";
@@ -68,22 +67,14 @@ export const menuItems: MenuItemType[] = [
   },
   {
     id: 3,
-    name: "Contact",
-    iconName: faPhoneAlt,
-    view: <IconIntro iconName={faPhoneAlt} />,
-    path: "/contact",
+    name: "Gallery",
+    iconName: faImage,
+    view: <IconIntro iconName={faImage} />,
+    path: "/gallery",
     isSettings: false
   },
   {
     id: 4,
-    name: "Skills",
-    iconName: faCheck,
-    path: "/skills",
-    view: <IconIntro iconName={faCheck} />,
-    isSettings: false
-  },
-  {
-    id: 5,
     name: "Settings",
     iconName: faCog,
     path: "/settings",

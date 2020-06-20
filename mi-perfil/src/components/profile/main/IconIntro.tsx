@@ -13,14 +13,12 @@ const IconIntro = ({ iconName }: IconIntroProps) => {
       className="icon-intro-main"
       style={{
         color: "#fff",
-        fontSize: "50px"
+        fontSize: "5rem"
       }}
     >
       <FontAwesomeIcon icon={iconName} />
 
-      <p style={{ color: "greenyellow", fontSize: "18pxpx" }}>
-        COMING SOON ...
-      </p>
+      <p style={{ color: "greenyellow" }}>COMING SOON ...</p>
     </div>
   );
 };
