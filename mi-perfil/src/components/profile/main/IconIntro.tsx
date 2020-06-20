@@ -10,7 +10,7 @@ interface IconIntroProps {
 const IconIntro = ({ iconName }: IconIntroProps) => {
   return (
     <div
-      className="icon-into-main"
+      className="icon-intro-main"
       style={{
         color: "#fff",
         fontSize: "50px"
