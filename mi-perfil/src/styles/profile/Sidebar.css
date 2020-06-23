@@ -10,7 +10,8 @@
 .menu-site-logo {
   background-image: url("../../images/logo-main.png");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   height: 40%;
   width: 40%;
   margin-top: 3rem;
