@@ -19,14 +19,18 @@
 
 .menu-item-main,
 .settings-menu {
-  color: #ddd;
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #ddd;
   font-size: 1.8rem;
   transition: background-color 0.5s, color 0.5s;
+}
+
+.settings-menu a {
+  color: #ddd;
 }
 
 .menu-item-circle,
@@ -58,12 +62,15 @@
 }
 
 .settings-menu-selected {
-  color: goldenrod;
   transition: color 0.5s;
   animation-name: rotate;
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+
+.settings-menu-selected a {
+  color: goldenrod;
 }
 
 @keyframes rotate {
