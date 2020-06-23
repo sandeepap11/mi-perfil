@@ -31,4 +31,25 @@
 .profile-about-main {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.profile-about-content {
+  flex: 1;
+}
+
+.profile-about-social {
+  display: flex;
+  font-size: 4rem;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+.profile-about-social a,
+.profile-about-social a:link,
+.profile-about-social a:visited {
+  text-decoration: none;
+  border: none;
+  color: #fff;
 }
