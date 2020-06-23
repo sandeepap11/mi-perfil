@@ -14,7 +14,7 @@ const Main = (props: MainProps) => {
         <Switch>
           {menuItems.map(menuItem => (
             <Route key={menuItem.id} exact path={menuItem.path}>
-              {menuItem.view}
+              <div className="main-page">{menuItem.view}</div>
             </Route>
           ))}
         </Switch>
