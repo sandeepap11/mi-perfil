@@ -26,13 +26,16 @@ const MenuItem = ({ menuItem, isSelected }: MenuItemProps) => {
             style={
               isSelected
                 ? {
-                    backgroundColor: "crimson",
                     color: "goldenrod"
                   }
                 : {}
             }
           >
-            <div>
+            <div
+              className={
+                isSelected ? "menu-item-circle-selected" : "menu-item-circle"
+              }
+            >
               <FontAwesomeIcon icon={menuItem.iconName} />
             </div>
           </div>

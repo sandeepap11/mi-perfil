@@ -7,6 +7,15 @@
   align-items: center;
 }
 
+.menu-site-logo {
+  background-image: url("../../images/logo-main.png");
+  background-position: center;
+  background-size: cover;
+  height: 40%;
+  width: 40%;
+  margin-top: 3rem;
+}
+
 .menu-item-main,
 .settings-menu {
   color: #ddd;
@@ -19,7 +28,21 @@
   transition: background-color 0.5s, color 0.5s;
 }
 
-.menu-item-main:hover {
+.menu-item-circle,
+.menu-item-circle-selected {
+  border: 2px solid transparent;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-item-circle-selected {
+  border: 2px solid goldenrod;
+}
+
+.menu-item-circle:hover {
   background-color: #eee;
   color: #000;
   transition: background-color 0.5s, color 0.5s;

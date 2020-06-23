@@ -12,6 +12,7 @@ import IconIntro from "./IconIntro";
 import BlogMain from "../blog/BlogMain";
 import About from "../about/About";
 import { withRouter, Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 interface SidebarProps {
   location: any;
@@ -26,6 +27,18 @@ const Sidebar = (props: SidebarProps) => {
 
   return (
     <nav className="menu-sidebar">
+      <Link
+        to={"/"}
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center"
+        }}
+      >
+        <div className="menu-site-logo"></div>
+      </Link>
+
       {menuItems.map(menuItem => (
         <MenuItem
           key={menuItem.id}
