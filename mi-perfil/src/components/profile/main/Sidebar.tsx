@@ -13,6 +13,7 @@ import BlogMain from "../blog/BlogMain";
 import About from "../about/About";
 import { withRouter, Redirect } from "react-router";
 import { Link } from "react-router-dom";
+import { personal } from "../../../utils/Constants";
 
 interface SidebarProps {
   location: any;
@@ -38,7 +39,9 @@ const Sidebar = (props: SidebarProps) => {
         }}
       >
         <div className="menu-site-logo"></div>
-        <div className="menu-site-logo-name">SANDEEP MADAVU</div>
+        <div className="menu-site-logo-name">
+          {personal.myName.toUpperCase()}
+        </div>
       </Link>
 
       {menuItems.map(menuItem => (
