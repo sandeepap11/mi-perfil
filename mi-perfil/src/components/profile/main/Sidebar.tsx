@@ -33,10 +33,12 @@ const Sidebar = (props: SidebarProps) => {
           height: "100%",
           width: "100%",
           display: "flex",
-          justifyContent: "center"
+          flexDirection: "column",
+          alignItems: "center"
         }}
       >
         <div className="menu-site-logo"></div>
+        <div className="menu-site-logo-name">SANDEEP MADAVU</div>
       </Link>
 
       {menuItems.map(menuItem => (
