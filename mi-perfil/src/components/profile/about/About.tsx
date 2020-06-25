@@ -10,7 +10,10 @@ export default function About() {
       <div className="profile-about-content">
         <div className="profile-about-picture"></div>
         <h1 className="profile-about-header">{lang.en.about.header}</h1>
-        <p className="profile-about-text">{lang.en.about.info}</p>
+        <p className="profile-about-text">
+          <strong>{lang.en.about.infoMain}</strong>
+        </p>
+        <p className="profile-about-text">{lang.en.about.infoSub}</p>
       </div>
       <div className="profile-about-social">
         {personal.socialLinks.map(socialLink => (

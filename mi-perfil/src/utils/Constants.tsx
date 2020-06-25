@@ -16,7 +16,7 @@ export const personal = {
     },
     {
       name: "E-mail",
-      link: "mailto:webmaster@example.com",
+      link: "mailto:sandeep.madavu@outlook.com",
       icon: faEnvelope
     }
   ]

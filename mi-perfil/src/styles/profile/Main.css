@@ -6,10 +6,12 @@
 .main-container {
   display: flex;
   height: 100vh;
+  overflow-y: hidden;
 }
 
 .main-page {
   background-color: rebeccapurple;
   flex: 1;
   min-width: 80rem;
+  overflow: auto;
 }
