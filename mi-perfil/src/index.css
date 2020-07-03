@@ -8,6 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 10px;
 }
+* {
+  box-sizing: border-box;
+}
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
