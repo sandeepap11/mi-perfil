@@ -10,7 +10,6 @@ const Main = () => {
     <Router>
       <div className="main-container">
         <Sidebar />
-
         <Switch>
           {menuItems.map(menuItem => (
             <Route key={menuItem.id} exact path={menuItem.path}>
@@ -25,6 +24,11 @@ const Main = () => {
           <Route exact path={routes.blogSearch}>
             <div className="main-page">
               <BlogMain />
+            </div>
+          </Route>
+          <Route>
+            <div className="main-page">
+              <h1 className="main-error-page">Page Not Found</h1>
             </div>
           </Route>
         </Switch>

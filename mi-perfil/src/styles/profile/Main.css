@@ -15,3 +15,13 @@
   min-width: 80rem;
   overflow: auto;
 }
+
+.main-error-page {
+  height: 100vh;
+  color: yellow;
+  font-size: 10rem;
+  display: grid;
+  place-items: center;
+  margin: 5rem;
+  padding: 5rem;
+}
