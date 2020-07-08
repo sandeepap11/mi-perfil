@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { blogList } from "../../../utils/BlogsList";
 import BlogCard from "./BlogCard";
 import "../../../styles/profile/Blog.css";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import { isNullOrUndefined } from "util";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export default function BlogMain() {
   const { tag, searchText } = useParams();
 
   const [searchValue, setSearchValue] = useState(
-    !isNullOrUndefined(searchText) ? searchText : ""
+    !isNullOrUndefined(searchText) ? decodeURIComponent(searchText) : ""
   );
 
   let list = blogList.sort((blogA, blogB) =>
@@ -20,15 +20,17 @@ export default function BlogMain() {
   if (!isNullOrUndefined(tag)) {
     list = list.filter(blog => blog.tags.includes(tag));
   } else if (!isNullOrUndefined(searchText) && searchText.length > 2) {
+    const searchTextValue = decodeURIComponent(searchText);
+
     list = list.filter(
       blog =>
-        blog.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        blog.subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
-        blog.author.toLowerCase().includes(searchText.toLowerCase()) ||
+        blog.title.toLowerCase().includes(searchTextValue.toLowerCase()) ||
+        blog.subtitle.toLowerCase().includes(searchTextValue.toLowerCase()) ||
+        blog.author.toLowerCase().includes(searchTextValue.toLowerCase()) ||
         blog.date.toLowerCase().includes(searchText.toLowerCase()) ||
         blog.tags.reduce((result: boolean, tag: string) => {
           result =
-            result || tag.toLowerCase().includes(searchText.toLowerCase());
+            result || tag.toLowerCase().includes(searchTextValue.toLowerCase());
           return result;
         }, false)
     );
@@ -44,7 +46,13 @@ export default function BlogMain() {
           value={searchValue}
           onChange={event => setSearchValue(event.target.value)}
         />
-        <Link to={searchValue === "" ? "/blog" : `/blog/search/${searchValue}`}>
+        <Link
+          to={
+            searchValue === ""
+              ? "/blog"
+              : `/blog/search/${encodeURIComponent(searchValue)}`
+          }
+        >
           <button className="profile-blog-search-submit">Search</button>
         </Link>
       </div>
