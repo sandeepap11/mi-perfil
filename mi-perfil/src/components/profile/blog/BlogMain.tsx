@@ -56,7 +56,11 @@ export default function BlogMain() {
       ) : (
         list.length > 0 && (
           <>
-            <BlogCard key={list[0].id} isLatest {...list[0]} />
+            <BlogCard
+              key={list[0].id}
+              isLatest={isNullOrUndefined(searchText) && isNullOrUndefined(tag)}
+              {...list[0]}
+            />
             {list.length > 1 &&
               list
                 .slice(1)

@@ -3,16 +3,31 @@
 }
 
 .profile-blog-card {
-  background-color: black;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   padding: 2rem;
   margin: 2rem;
   border-radius: 2rem;
+}
+.profile-blog-card-latest {
+  background-color: black;
+  color: #fff;
+}
+
+.profile-blog-card-latest::before {
+  content: "Latest";
+  font-size: 1.8rem;
+  padding-left: 1rem;
+  color: #fff;
 }
 
 .profile-blog-tags {
   display: flex;
   font-size: 1.6rem;
+}
+
+.profile-blog-card-latest .profile-blog-tags {
+  font-size: 2rem;
 }
 
 .profile-blog-tag {
@@ -22,6 +37,10 @@
 .profile-blog-title {
   font-size: 2.4rem;
   padding: 1rem;
+}
+
+.profile-blog-card-latest .profile-blog-title {
+  font-size: 2.8rem;
 }
 
 .profile-blog-subtitle {
@@ -34,6 +53,10 @@
   justify-content: space-between;
   padding: 1rem;
   font-size: 1.4rem;
+}
+
+.profile-blog-card-latest .profile-blog-info {
+  font-size: 1.8rem;
 }
 
 .profile-blog-info-detail {

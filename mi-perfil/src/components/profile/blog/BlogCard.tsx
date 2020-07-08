@@ -10,16 +10,27 @@ interface BlogCardProps {
   author: string;
 }
 
-const BlogCard = ({ title, subtitle, date, tags, author }: BlogCardProps) => {
+const BlogCard = ({
+  isLatest,
+  title,
+  subtitle,
+  date,
+  tags,
+  author
+}: BlogCardProps) => {
   return (
-    <div className="profile-blog-card">
+    <div
+      className={`profile-blog-card ${
+        isLatest ? "profile-blog-card-latest" : ""
+      }`}
+    >
       <div className="profile-blog-tags">
         {tags.map(tag => (
           <BlogTag key={tag} tag={tag} />
         ))}
       </div>
       <h1 className="profile-blog-title">{title}</h1>
-      <h2 className="profile-blog-subtitle">{subtitle}</h2>
+      {isLatest && <h2 className="profile-blog-subtitle">{subtitle}</h2>}
       <div className="profile-blog-info">
         <div className="profile-blog-info-detail">{date}</div>
         <div className="profile-blog-info-detail">{author}</div>
