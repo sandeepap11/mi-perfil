@@ -14,6 +14,7 @@ import About from "../about/About";
 import { withRouter, Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import { personal } from "../../../utils/Constants";
+import { routes } from "../../../utils/Config";
 
 interface SidebarProps {
   location: any;
@@ -21,7 +22,10 @@ interface SidebarProps {
 
 const Sidebar = (props: SidebarProps) => {
   if (
-    !menuItems.map(menuItem => menuItem.path).includes(props.location.pathname)
+    !menuItems.reduce((result, menuItem) => {
+      result = result || props.location.pathname.includes(menuItem.path);
+      return result;
+    }, false)
   ) {
     return <Redirect to={"/blog"} />;
   }
@@ -72,7 +76,7 @@ export const menuItems: MenuItemType[] = [
     name: "Home",
     iconName: faHome,
     view: <BlogMain />,
-    path: "/blog",
+    path: routes.home,
     isSettings: false
   },
   {
@@ -80,7 +84,7 @@ export const menuItems: MenuItemType[] = [
     name: "About",
     iconName: faUser,
     view: <About />,
-    path: "/about",
+    path: routes.about,
     isSettings: false
   },
   {
@@ -88,14 +92,14 @@ export const menuItems: MenuItemType[] = [
     name: "Gallery",
     iconName: faImage,
     view: <IconIntro iconName={faImage} />,
-    path: "/gallery",
+    path: routes.gallery,
     isSettings: false
   },
   {
     id: 4,
     name: "Settings",
     iconName: faCog,
-    path: "/settings",
+    path: routes.settings,
     view: <IconIntro iconName={faCog} />,
     isSettings: true
   }

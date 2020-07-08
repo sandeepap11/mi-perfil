@@ -1,0 +1,36 @@
+.profile-blog-main {
+  margin: 5rem;
+}
+
+.profile-blog-card {
+  background-color: black;
+  color: #fff;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 2rem;
+}
+.profile-blog-tags {
+  display: flex;
+  font-size: 1.6rem;
+}
+.profile-blog-tag {
+  margin: 1rem;
+}
+.profile-blog-title {
+  font-size: 2.4rem;
+  padding: 1rem;
+}
+.profile-blog-subtitle {
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+.profile-blog-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.4rem;
+}
+.profile-blog-info-detail {
+}
+.profile-blog-info-detail {
+}

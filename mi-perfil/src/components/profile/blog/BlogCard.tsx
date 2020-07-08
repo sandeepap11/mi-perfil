@@ -1,6 +1,8 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 interface BlogCardProps {
+  isLatest: boolean;
   title: string;
   subtitle: string;
   date: string;
@@ -8,20 +10,32 @@ interface BlogCardProps {
   author: string;
 }
 
-export default function BlogCard({
-  title,
-  subtitle,
-  date,
-  tags,
-  author
-}: BlogCardProps) {
+const BlogCard = ({ title, subtitle, date, tags, author }: BlogCardProps) => {
   return (
-    <div>
-      <div>{tags}</div>
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
-      <div>{date}</div>
-      <div>{author}</div>
+    <div className="profile-blog-card">
+      <div className="profile-blog-tags">
+        {tags.map(tag => (
+          <BlogTag key={tag} tag={tag} />
+        ))}
+      </div>
+      <h1 className="profile-blog-title">{title}</h1>
+      <h2 className="profile-blog-subtitle">{subtitle}</h2>
+      <div className="profile-blog-info">
+        <div className="profile-blog-info-detail">{date}</div>
+        <div className="profile-blog-info-detail">{author}</div>
+      </div>
     </div>
   );
+};
+
+interface BlogTagProps {
+  tag: string;
 }
+
+export const BlogTag = ({ tag }: BlogTagProps) => (
+  <div className="profile-blog-tag" key={tag}>
+    <Link to={`/blog/${tag}`}>#{tag}</Link>
+  </div>
+);
+
+export default BlogCard;
