@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sidebar, { menuItems } from "./Sidebar";
 import "../../../styles/profile/Main.css";
 import BlogMain from "../blog/BlogMain";
+import { routes } from "../../../utils/Config";
 
 const Main = () => {
   return (
@@ -16,7 +17,12 @@ const Main = () => {
               <div className="main-page">{menuItem.view}</div>
             </Route>
           ))}
-          <Route exact path={"/blog/:tag"}>
+          <Route exact path={routes.blogTags}>
+            <div className="main-page">
+              <BlogMain />
+            </div>
+          </Route>
+          <Route exact path={routes.blogSearch}>
             <div className="main-page">
               <BlogMain />
             </div>

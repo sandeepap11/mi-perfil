@@ -3,5 +3,6 @@ export const routes = {
   about: "/about",
   gallery: "/gallery",
   settings: "/settings",
-  blogTags: "/blog/:tag"
+  blogTags: "/blog/tags/:tag",
+  blogSearch: "/blog/search/:searchText"
 };

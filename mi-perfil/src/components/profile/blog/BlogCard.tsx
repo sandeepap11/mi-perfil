@@ -34,7 +34,7 @@ interface BlogTagProps {
 
 export const BlogTag = ({ tag }: BlogTagProps) => (
   <div className="profile-blog-tag" key={tag}>
-    <Link to={`/blog/${tag}`}>#{tag}</Link>
+    <Link to={`/blog/tags/${tag}`}>#{tag}</Link>
   </div>
 );
 
