@@ -34,6 +34,13 @@
   margin: 1rem;
 }
 
+.profile-blog-tag a,
+.profile-blog-tag a:visited,
+.profile-blog-tag a:link {
+  text-decoration: none;
+  color: blue;
+}
+
 .profile-blog-title {
   font-size: 2.4rem;
   padding: 1rem;
