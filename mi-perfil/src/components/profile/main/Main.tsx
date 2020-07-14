@@ -4,6 +4,7 @@ import Sidebar, { menuItems } from "./Sidebar";
 import "../../../styles/profile/Main.css";
 import BlogMain from "../blog/BlogMain";
 import { routes } from "../../../utils/Config";
+import { Blog } from "../blog/Blog";
 
 const Main = () => {
   return (
@@ -24,6 +25,11 @@ const Main = () => {
           <Route exact path={routes.blogSearch}>
             <div className="main-page">
               <BlogMain />
+            </div>
+          </Route>
+          <Route exact path={routes.blog}>
+            <div className="main-page">
+              <Blog />
             </div>
           </Route>
           <Route>

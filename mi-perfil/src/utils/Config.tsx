@@ -4,5 +4,6 @@ export const routes = {
   gallery: "/gallery",
   settings: "/settings",
   blogTags: "/blog/tags/:tag",
-  blogSearch: "/blog/search/:searchText"
+  blogSearch: "/blog/search/:searchText",
+  blog: "/blog/:blogId"
 };

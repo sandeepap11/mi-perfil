@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { blogList } from "../../../utils/BlogsList";
 import BlogCard from "./BlogCard";
 import "../../../styles/profile/Blog.css";
-import { useParams, useLocation } from "react-router";
+import { useParams } from "react-router";
 import { isNullOrUndefined } from "util";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,6 @@ export default function BlogMain() {
     list = list.filter(
       blog =>
         blog.title.toLowerCase().includes(searchTextValue.toLowerCase()) ||
-        blog.subtitle.toLowerCase().includes(searchTextValue.toLowerCase()) ||
         blog.author.toLowerCase().includes(searchTextValue.toLowerCase()) ||
         blog.date.toLowerCase().includes(searchText.toLowerCase()) ||
         blog.tags.reduce((result: boolean, tag: string) => {

@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { Content } from "../../../utils/BlogsList";
 
 interface BlogCardProps {
   isLatest: boolean;
+  id: number;
   title: string;
-  subtitle: string;
+  content: Content[];
   date: string;
   tags: string[];
   author: string;
@@ -12,8 +14,9 @@ interface BlogCardProps {
 
 const BlogCard = ({
   isLatest,
+  id,
   title,
-  subtitle,
+  content,
   date,
   tags,
   author
@@ -29,8 +32,13 @@ const BlogCard = ({
           <BlogTag key={tag} tag={tag} />
         ))}
       </div>
-      <h1 className="profile-blog-title">{title}</h1>
-      {isLatest && <h2 className="profile-blog-subtitle">{subtitle}</h2>}
+      <Link to={`/blog/${id}`}>
+        <h1 className="profile-blog-title">{title}</h1>
+      </Link>
+
+      {isLatest && content.length > 0 && (
+        <h2 className="profile-blog-subtitle">{content[0].data}</h2>
+      )}
       <div className="profile-blog-info">
         <div className="profile-blog-info-detail">{date}</div>
         <div className="profile-blog-info-detail">{author}</div>
