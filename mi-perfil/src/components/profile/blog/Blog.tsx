@@ -26,6 +26,21 @@ export const Blog = () => {
           </BlogContentTile>
         ))}
       </div>
+      <div className="profile-blog-related">
+        <h1>Related Articles</h1>
+        {blogList[currentIndex].relatedBlogs.map(blogIndex => {
+          const currentBlogIndex = blogList.findIndex(
+            blog => blog.id.toString() === blogIndex.toString()
+          );
+          return (
+            <BlogCard
+              key={currentBlogIndex}
+              isLatest={false}
+              {...blogList[currentBlogIndex]}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -46,17 +61,37 @@ const BlogContentTile = ({
       return (
         <>
           {children.map(child => (
-            <div className="profile-blog-content-preamble">{child}</div>
+            <div
+              className="profile-blog-content-preamble"
+              key={child.slice(0, 5)}
+            >
+              {child}
+            </div>
           ))}
         </>
       );
     case "p":
       return (
-        <>
-          {children.map(child => (
-            <p className="profile-blog-content-paragraph">{child}</p>
-          ))}
-        </>
+        <div className="profile-blog-content-paragraph-main">
+          {children.map(child =>
+            child.startsWith("http") ? (
+              <a
+                className="profile-blog-content-paragraph"
+                key={child.slice(0, 5)}
+                href={child}
+              >
+                here
+              </a>
+            ) : (
+              <p
+                className="profile-blog-content-paragraph"
+                key={child.slice(0, 5)}
+              >
+                {child}
+              </p>
+            )
+          )}
+        </div>
       );
     case "code":
       return (
@@ -65,7 +100,9 @@ const BlogContentTile = ({
             <div className="profile-blog-content-code-header">{header}</div>
           )}
           {children.map(child => (
-            <code className="profile-blog-content-code">{child}</code>
+            <code className="profile-blog-content-code" key={Math.random()}>
+              {child}
+            </code>
           ))}
         </div>
       );
@@ -73,7 +110,12 @@ const BlogContentTile = ({
       return (
         <>
           {children.map(child => (
-            <div className="profile-blog-content-postscript">{child}</div>
+            <div
+              className="profile-blog-content-postscript"
+              key={child.slice(0, 5)}
+            >
+              {child}
+            </div>
           ))}
         </>
       );
@@ -81,15 +123,39 @@ const BlogContentTile = ({
       return (
         <>
           {children.map(child => (
-            <aside className="profile-blog-content-aside">{child}</aside>
+            <aside
+              className="profile-blog-content-aside"
+              key={child.slice(0, 5)}
+            >
+              {child}
+            </aside>
           ))}
         </>
       );
+
     case "sectionhead":
       return (
         <>
           {children.map(child => (
-            <h1 className="profile-blog-content-section-header">{child}</h1>
+            <h1
+              className="profile-blog-content-section-header"
+              key={child.slice(0, 5)}
+            >
+              {child}
+            </h1>
+          ))}
+        </>
+      );
+
+    case "image":
+      return (
+        <>
+          {children.map(child => (
+            <img
+              className="profile-blog-content-image"
+              key={child}
+              src={require(`../../../images/profile/blog/${child}`)}
+            />
           ))}
         </>
       );

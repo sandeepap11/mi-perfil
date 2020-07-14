@@ -146,10 +146,14 @@
   line-height: 7.4rem;
 }
 
-.profile-blog-content-paragraph {
+.profile-blog-content-paragraph-main {
   font-size: 2rem;
   line-height: 3.8rem;
   padding-bottom: 4rem;
+}
+
+.profile-blog-content-paragraph {
+  display: inline;
 }
 
 .profile-blog-content-code-main {
@@ -171,6 +175,7 @@
 .profile-blog-content-code {
   display: block;
   padding-left: 2rem;
+  min-height: 2.2rem;
 }
 
 .profile-blog-content-postscript {
@@ -191,4 +196,23 @@
   line-height: 4.4rem;
   padding-bottom: 4rem;
   font-weight: bold;
+}
+
+.profile-blog-content-image {
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.profile-blog-related {
+  background-color: #fff;
+  color: #000;
+  margin: 2rem;
+  border-radius: 2rem;
+}
+
+.profile-blog-related > h1 {
+  padding: 2rem;
+  margin: 2rem;
+  font-size: 3.6rem;
+  color: blueviolet;
 }
