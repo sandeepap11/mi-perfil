@@ -63,7 +63,7 @@ const BlogContentTile = ({
           {children.map(child => (
             <div
               className="profile-blog-content-preamble"
-              key={child.slice(0, 5)}
+              key={child.slice(0, 10)}
             >
               {child}
             </div>
@@ -77,7 +77,7 @@ const BlogContentTile = ({
             child.startsWith("http") ? (
               <a
                 className="profile-blog-content-paragraph"
-                key={child.slice(0, 5)}
+                key={child}
                 href={child}
               >
                 here
@@ -85,7 +85,7 @@ const BlogContentTile = ({
             ) : (
               <p
                 className="profile-blog-content-paragraph"
-                key={child.slice(0, 5)}
+                key={child.slice(0, 10)}
               >
                 {child}
               </p>
@@ -112,7 +112,7 @@ const BlogContentTile = ({
           {children.map(child => (
             <div
               className="profile-blog-content-postscript"
-              key={child.slice(0, 5)}
+              key={child.slice(0, 10)}
             >
               {child}
             </div>
@@ -125,7 +125,7 @@ const BlogContentTile = ({
           {children.map(child => (
             <aside
               className="profile-blog-content-aside"
-              key={child.slice(0, 5)}
+              key={child.slice(0, 10)}
             >
               {child}
             </aside>
@@ -139,7 +139,7 @@ const BlogContentTile = ({
           {children.map(child => (
             <h1
               className="profile-blog-content-section-header"
-              key={child.slice(0, 5)}
+              key={child.slice(0, 10)}
             >
               {child}
             </h1>

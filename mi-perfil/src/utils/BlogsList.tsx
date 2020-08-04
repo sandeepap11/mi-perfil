@@ -29,14 +29,14 @@ export const blogList: Blog[] = [
         id: 1,
         type: "pre",
         data: [
-          "This is a series on what I have come to see as a very common requirement in most B2B applications - a Grid. We will build a simple custom grid using React Hooks, and then we will add functionalities as we go."
+          "This is a series on what I have come to see as a very common requirement in most B2B applications - a Grid. We will build a simple custom grid using React Hooks and then we will add functionalities as we go."
         ]
       },
       {
         id: 2,
         type: "p",
         data: [
-          "Grids are one of the most (if not the most) used medium of displaying structured data to users. In React, there are third party components available to make your job easier. In my opinion, you should go for these only when there is a large amount of data to be displayed (e.g., data with  more than 15-20 rows or with dynamic headers or both). react-virtualized by Brian Vaughn and fixed-data-table-2 are some of the popular packages that you could consider for displaying large amount of data. With these packages, note that every cell is a component and if you do not control the rendering, every cell will render on every change which will slow down the app. Of course, there are options to control the rendering and those should be used wisely. In this series though, we will build a small grid with known table headers, and discuss common functionalities like pagination, search, sort, etc. The code is available here for reference ",
+          "Grids are one of the most (if not the most) used medium of displaying structured data to users. In React, there are third party components available to make your job easier. In my opinion, you should go for these only when there is a large amount of data to be displayed (e.g., data with  more than 15-20 columns or with dynamic column headers or both). react-virtualized by Brian Vaughn and fixed-data-table-2 are some of the popular packages that you could consider for displaying large amount of data. With these packages, note that every cell is a component and if you do not control the rendering, every cell will render on every change which will slow down the app. Of course, there are options to control the rendering and those should be used wisely. In this series though, we will build a small grid with known table headers, and discuss common functionalities like pagination, search, sort, etc. The code is available for reference ",
           "https://github.com/sandeepap11/example-code/tree/gridseries-blog-1/src/components/Grid",
 
           ". This uses matches data from ",
@@ -239,7 +239,41 @@ export const blogList: Blog[] = [
     tags: ["react", "grid", "table", "pagination"],
     author: "Sandeep Madavu",
     relatedBlogs: [3, 1],
-    content: []
+    content: [
+      {
+        id: 1,
+        type: "pre",
+        data: [
+          "This is part 2 of the custom React Grid series. In the first part, we read the table data from the api and then loaded it on to the grid. In this one, we will add dynamic pagination."
+        ]
+      },
+      {
+        id: 2,
+        type: "p",
+        data: [
+          "This is part 2 of the custom React Grid series. In the first part, we read the table data from the api and then loaded it on to the grid. In this one, we will add dynamic pagination. The code for this part is available ",
+          "https://github.com/sandeepap11/example-code/tree/gridseries-blog-2",
+          ". So, let's get to it!"
+        ]
+      },
+      {
+        id: 3,
+        type: "code",
+        header: "GridRow.js",
+        data: [
+          "const ROWS_PER_PAGE = 10;",
+          "...",
+          "const totalPages = parseFloat(",
+          `  (filteredMatches.length / ROWS_PER_PAGE).toString().split(".")[0]`,
+          ");",
+          "",
+          "  const matchesToShow = filteredMatches.slice(",
+          "    (pageNumber - 1) * ROWS_PER_PAGE,",
+          "    pageNumber * ROWS_PER_PAGE",
+          "  );"
+        ]
+      }
+    ]
   },
   {
     id: 3,
