@@ -15,6 +15,7 @@ import { withRouter, Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import { personal } from "../../../utils/Constants";
 import { routes } from "../../../utils/Config";
+import Gallery from "../../gallery/Gallery";
 
 interface SidebarProps {
   location: any;
@@ -91,7 +92,7 @@ export const menuItems: MenuItemType[] = [
     id: 3,
     name: "Gallery",
     iconName: faImage,
-    view: <IconIntro iconName={faImage} />,
+    view: <Gallery />,
     path: routes.gallery,
     isSettings: false
   },

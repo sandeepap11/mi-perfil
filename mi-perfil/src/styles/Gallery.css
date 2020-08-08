@@ -1,0 +1,61 @@
+.gallery-main {
+  display: grid;
+  place-items: center;
+}
+
+.gallery-main h1 {
+  color: white;
+  font-size: 12rem;
+  font-weight: 100;
+  padding: 3rem;
+  text-align: center;
+}
+
+.gallery-location-list {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-location-item {
+  background-image: url("../images/profile-image.png");
+  background-position: top;
+  background-size: cover;
+  height: 40rem;
+  margin: 3rem;
+  position: relative;
+  transition: 1s background-position;
+  width: 30rem;
+}
+
+.gallery-location-item:hover {
+  background-position: bottom;
+  background-size: auto;
+  transition: 1s background-position;
+}
+
+.gallery-location-item > div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: black;
+  height: 100%;
+  opacity: 50%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: yellow;
+  font-size: 4rem;
+  padding: 3rem;
+}
+
+.gallery-location-item > div:hover {
+  background-color: black;
+  height: 100%;
+  opacity: 30%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: white;
+}
