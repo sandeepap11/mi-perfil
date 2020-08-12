@@ -154,6 +154,7 @@ const BlogContentTile = ({
             <img
               className="profile-blog-content-image"
               key={child}
+              alt={child}
               src={require(`../../../images/profile/blog/${child}`)}
             />
           ))}

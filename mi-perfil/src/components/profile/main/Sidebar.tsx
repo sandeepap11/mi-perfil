@@ -3,7 +3,6 @@ import {
   faCog,
   faHome,
   faUser,
-  faImage,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
 import MenuItem from "./MenuItem";
@@ -15,7 +14,7 @@ import { withRouter, Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import { personal } from "../../../utils/Constants";
 import { routes } from "../../../utils/Config";
-import Gallery from "../../gallery/Gallery";
+//import Gallery from "../../gallery/Gallery";
 
 interface SidebarProps {
   location: any;
@@ -88,14 +87,14 @@ export const menuItems: MenuItemType[] = [
     path: routes.about,
     isSettings: false
   },
-  {
-    id: 3,
-    name: "Gallery",
-    iconName: faImage,
-    view: <Gallery />,
-    path: routes.gallery,
-    isSettings: false
-  },
+  // {
+  //   id: 3,
+  //   name: "Gallery",
+  //   iconName: faImage,
+  //   view: <Gallery />,
+  //   path: routes.gallery,
+  //   isSettings: false
+  // },
   {
     id: 4,
     name: "Settings",
