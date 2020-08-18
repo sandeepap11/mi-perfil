@@ -515,9 +515,7 @@ export const blogList: Blog[] = [
       {
         id: 1,
         type: "pre",
-        data: [
-          "This is a series on what I have come to see as a very common requirement in most B2B applications - a Grid. I will build a simple custom grid using React Hooks, and then we will add functionalities as we go."
-        ]
+        data: ["In this part, we will add search and sort. Coming soon ..."]
       }
     ]
   }
