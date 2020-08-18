@@ -23,7 +23,7 @@ export const blogList: Blog[] = [
     date: "July 07 2020",
     tags: ["react", "grid", "table", "api"],
     author: "Sandeep Madavu",
-    relatedBlogs: [2, 3],
+    relatedBlogs: [2],
     content: [
       {
         id: 1,
@@ -238,7 +238,7 @@ export const blogList: Blog[] = [
     date: "July 10 2020",
     tags: ["react", "grid", "table", "pagination"],
     author: "Sandeep Madavu",
-    relatedBlogs: [3, 1],
+    relatedBlogs: [1],
     content: [
       {
         id: 1,
@@ -502,21 +502,21 @@ export const blogList: Blog[] = [
         ]
       }
     ]
-  },
-  {
-    id: 3,
-    title: "A Custom React Grid - Part 3",
+    // },
+    // {
+    //   id: 3,
+    //   title: "A Custom React Grid - Part 3",
 
-    date: "July 15 2020",
-    tags: ["react", "grid", "table", "search", "sort"],
-    author: "Sandeep Madavu",
-    relatedBlogs: [1, 2],
-    content: [
-      {
-        id: 1,
-        type: "pre",
-        data: ["In this part, we will add search and sort. Coming soon ..."]
-      }
-    ]
+    //   date: "July 15 2020",
+    //   tags: ["react", "grid", "table", "search", "sort"],
+    //   author: "Sandeep Madavu",
+    //   relatedBlogs: [1, 2],
+    //   content: [
+    //     {
+    //       id: 1,
+    //       type: "pre",
+    //       data: ["In this part, we will add search and sort. Coming soon ..."]
+    //     }
+    //   ]
   }
 ];
