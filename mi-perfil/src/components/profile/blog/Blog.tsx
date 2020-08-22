@@ -3,6 +3,8 @@ import { useParams } from "react-router";
 import { blogList } from "../../../utils/BlogsList";
 import BlogCard from "./BlogCard";
 import { isNullOrUndefined } from "util";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 export const Blog = () => {
   const { blogId } = useParams();
@@ -79,8 +81,19 @@ const BlogContentTile = ({
                 className="profile-blog-content-paragraph"
                 key={child}
                 href={child}
+                target={
+                  child.includes(document.location.hostname)
+                    ? "_self"
+                    : "_blank"
+                }
               >
-                here
+                {"here"}
+                {!child.includes(document.location.hostname) && (
+                  <>
+                    {" "}
+                    <FontAwesomeIcon icon={faExternalLinkAlt} />
+                  </>
+                )}
               </a>
             ) : (
               <p

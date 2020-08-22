@@ -18,12 +18,12 @@ interface Blog {
 export const blogList: Blog[] = [
   {
     id: 1,
-    title: "A Custom React Grid - Part 1",
+    title: "A Custom React Grid: Load Data (Part 1)",
 
     date: "July 07 2020",
     tags: ["react", "grid", "table", "api"],
     author: "Sandeep Madavu",
-    relatedBlogs: [2],
+    relatedBlogs: [2, 3, 4],
     content: [
       {
         id: 1,
@@ -233,12 +233,12 @@ export const blogList: Blog[] = [
   },
   {
     id: 2,
-    title: "A Custom React Grid - Part 2",
+    title: "A Custom React Grid: Pagination (Part 2)",
 
     date: "July 10 2020",
     tags: ["react", "grid", "table", "pagination"],
     author: "Sandeep Madavu",
-    relatedBlogs: [1],
+    relatedBlogs: [3, 4, 1],
     content: [
       {
         id: 1,
@@ -502,21 +502,530 @@ export const blogList: Blog[] = [
         ]
       }
     ]
-    // },
-    // {
-    //   id: 3,
-    //   title: "A Custom React Grid - Part 3",
+  },
+  {
+    id: 3,
+    title: "A Custom React Grid: Search and Sort (Part 3)",
 
-    //   date: "July 15 2020",
-    //   tags: ["react", "grid", "table", "search", "sort"],
-    //   author: "Sandeep Madavu",
-    //   relatedBlogs: [1, 2],
-    //   content: [
-    //     {
-    //       id: 1,
-    //       type: "pre",
-    //       data: ["In this part, we will add search and sort. Coming soon ..."]
-    //     }
-    //   ]
+    date: "August 21 2020",
+    tags: ["react", "grid", "table", "search", "sort"],
+    author: "Sandeep Madavu",
+    relatedBlogs: [4, 1, 2],
+    content: [
+      {
+        id: 1,
+        type: "pre",
+        data: [
+          "Let's continue with part 3 of this Grid series. We populated a grid with API data and added pagination to it in the previous lessons. Now we add two basic functionalties in Search and Sort of all columns."
+        ]
+      },
+      {
+        id: 2,
+        type: "p",
+        data: [
+          "Thanks to the first two parts, we have a grid with data loaded from the World Cup and api, and it has dynamic pagination introduced. We will now add Search and Sort functionalities to our grid. The code for this part is available ",
+          "https://github.com/sandeepap11/example-code/tree/gridseries-blog-3",
+          ". So, without further ado let's get started."
+        ]
+      },
+      {
+        id: 3,
+        type: "p",
+        data: [
+          "We only need to make changes in two files - viz., GridMain and Grid. Let's start with Search which is probably more trivial. In Grid component, we will add a local search text state, and then define a function to set the text on change of the text input. This method will also reset the page number to 1 and also set the search text in the main parent component through props. Note that we will have an on change search instead of on submit. If you're using an api for search and you need this to be on submit, then you will have to define another method. Also, the parent component method would have to make that api call. These points and the presentational change are shown below from a code point of view."
+        ]
+      },
+      {
+        id: 4,
+        type: "code",
+        header: "Grid.js Snippet",
+        data: [
+          `  const [searchText, setSearchText] = useState("");`,
+          "...",
+          "// Note that updateSearchText and setPageNumber come from the main component.",
+          "",
+          "  const onSearch = text => {",
+          "  setSearchText(text);",
+          "  updateSearchText(text);",
+          "  setPageNumber(1);",
+          "};",
+          "...",
+          "// Below is the presentational JSX from render method",
+          "",
+          `<div className="grid-search">`,
+          `<input`,
+          `  type="text"`,
+          `  placeholder="Type to search"`,
+          "  value={searchText}",
+          "  onChange={event => onSearch(event.target.value)}",
+          "  />",
+          " </div>"
+        ]
+      },
+      {
+        id: 5,
+        type: "p",
+        data: [
+          "In the GridMain component, we will define a search text state as well. In addition, we need to write a filter method which will run when the search text isn't empty, and look for the search text in all columns since we are performing this search on all columns. Below is one way to do this."
+        ]
+      },
+      {
+        id: 6,
+        type: "code",
+        header: "GridMain.js Snippet",
+        data: [
+          "...",
+          `  const [searchText, setSearchText] = useState("");`,
+          "...",
+          "// The filter method as we discussed",
+          "...",
+          `if (filteredMatches && searchText && searchText !== "")`,
+          "filteredMatches = filteredMatches.filter(",
+          "  match =>",
+          "    match.gameNumber.toString().includes(searchText) ||",
+          "    match.dateString.toLowerCase().includes(searchText.toLowerCase()) ||",
+          "    match.stage_name.toLowerCase().includes(searchText.toLowerCase()) ||",
+          "    match.location.toLowerCase().includes(searchText.toLowerCase()) ||",
+          "    match.venue.toLowerCase().includes(searchText.toLowerCase()) ||",
+          "    match.home_team_country",
+          "      .toLowerCase()",
+          "      .includes(searchText.toLowerCase()) ||",
+          "    match.away_team_country",
+          "      .toLowerCase()",
+          "      .includes(searchText.toLowerCase()) ||",
+          "    match.score.toLowerCase().includes(searchText.toLowerCase()) ||",
+          "    match.attendance.toLowerCase().includes(searchText.toLowerCase())",
+          " );"
+        ]
+      },
+      {
+        id: 7,
+        type: "p",
+        data: [
+          "We just have to pass the setPageNumber and setSearchText methods to the Grid component, and the search should start to work as expected."
+        ]
+      },
+      {
+        id: 8,
+        type: "p",
+        data: [
+          "Now onto the sort one. We'll run this in the reverse order. Let's do the main component first and then the child. Firstly, we will define two states - one to hold the header of the column being sorted and the other for the direction - ascending or descending. The selected header as well as the setter methods for the states will be sent as props to the Grid component. Along with this, we need a sort method on the main component (similar to how we had a filter method for search) to sort our list based on the column being sorted and the sort direction. I'm sure you could improve this method but at this point all we are doing is sorting based on the headers when the sort directions are given. Below are the code changes."
+        ]
+      },
+      {
+        id: 9,
+        type: "code",
+        header: "GridMain.js Snippet",
+        data: [
+          "...",
+          `const [sortHeader, setSortHeader] = useState("");`,
+          `const [sortDirection, setSortDirection] = useState("");`,
+          "...",
+          "// Sort method on filteredMatches when soert header and direction iare defined",
+          "",
+          "if (",
+          "  sortHeader &&",
+          "  sortDirection &&",
+          `  sortHeader !== "" &&`,
+          `  (sortDirection === "ASC" || sortDirection === "DESC")`,
+          " )",
+          "",
+          "  filteredMatches = filteredMatches.sort((matchA, matchB) =>",
+          `    sortDirection === "ASC"`,
+          "      ? matchA[sortHeader] > matchB[sortHeader]",
+          "        ? 1",
+          "        : -1",
+          "      : matchA[sortHeader] > matchB[sortHeader]",
+          "      ? -1",
+          "      : 1",
+          "  );",
+          "...",
+          "// Additional props to the Grid component for Search and Sort",
+          "",
+          "<Grid",
+          "matches={matchesToShow}",
+          "rowsPerPage={ROWS_PER_PAGE}",
+          "updateSearchText={setSearchText}",
+          "setPageNumber={setPageNumber}",
+          "sortHeader={sortHeader}",
+          "setSortHeader={setSortHeader}",
+          "setSortDirection={setSortDirection}",
+          "/>"
+        ]
+      },
+      {
+        id: 10,
+        type: "p",
+        data: [
+          "In the Grid component, first we'll define a Sort Handle which will now represent the sort button for every column and make the sorting work on click. It will take 3 props - column name, currently selected sort header and a method to be fired when the button is clicked upon. This will also have a local state for sort direction. Initially this will be empty and show the up-down arrow icon. On click, firstly it will change to 'ASC' with up arrow and then to 'DESC' on next click with down arrow. On subsequent clicks, it will toggle between 'ASC' and 'DESC'. If any other column sort icon is clicked, the icons will reset to up-down. Note that the sorting method will be called on every click."
+        ]
+      },
+      {
+        id: 11,
+        type: "code",
+        header: "Grid.js Snippet",
+        data: [
+          `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";`,
+          "import {",
+          "  faSort,",
+          "  faSortUp,",
+          "  faSortDown",
+          `} from "@fortawesome/free-solid-svg-icons";`,
+          "...",
+          "// Sort Handle Component",
+
+          "const SortHandle = ({ parameter, sortHeader, onSort }) => {",
+          `  const [sortColumnOrder, setSortColumnOrder] = useState("");`,
+          "",
+          "  const changeSortOrder = () => {",
+          "    const sortDirection =",
+          "      parameter !== sortHeader",
+          `        ? "ASC"`,
+          `        : sortColumnOrder === "ASC"`,
+          `        ? "DESC"`,
+          `        : sortColumnOrder === "DESC"`,
+          `        ? "ASC"`,
+          `        : "ASC";`,
+          "",
+          "    setSortColumnOrder(sortDirection);",
+          "",
+          "    onSort(parameter, sortDirection);",
+          "  };",
+          "",
+          "  return (",
+          `    <div className="grid-geader-sort" onClick={changeSortOrder}>`,
+          "      <FontAwesomeIcon",
+          "        icon={",
+          "          parameter !== sortHeader",
+          "            ? faSort",
+          `            : sortColumnOrder === "ASC"`,
+          "            ? faSortUp",
+          `            : sortColumnOrder === "DESC"`,
+          "            ? faSortDown",
+          "            : faSort",
+          "        }",
+          "      />",
+          "    </div>",
+          "  );",
+          "};"
+        ]
+      },
+      {
+        id: 12,
+        type: "p",
+        data: [
+          "Let's now get into the Grid component. We'll add the SortHandle component (these will basically act as sort buttons) alongside every column name. To every SortHandle component we will pass the props - current column, selected sortHeader from GridMain and a method to sort. We need to define this method similar to the search method. On sorting, we will set the current column as sort header, and the sort direction based on the local state of SortHandle for that component. We will also reset the page number to 1. All these, along with search will make the Grid component code look like this -"
+        ]
+      },
+      {
+        id: 13,
+        type: "code",
+        header: "Grid.js Snippet",
+        data: [
+          "...",
+          "const Grid = ({",
+          "  matches,",
+          "  rowsPerPage,",
+          "  updateSearchText,",
+          "  setPageNumber,",
+          "  sortHeader,",
+          "  setSortHeader,",
+          "  setSortDirection",
+          "}) => {",
+          `  const [searchText, setSearchText] = useState("");`,
+          "",
+          "  let emptyRows = [];",
+          "",
+          "  if (rowsPerPage > matches.length) {",
+          "    for (let i = 0; i < rowsPerPage - matches.length; i++) {",
+          "      emptyRows.push(i);",
+          "    }",
+          "  }",
+          "",
+          "  const onSearch = text => {",
+          "    setSearchText(text);",
+          "    updateSearchText(text);",
+          "    setPageNumber(1);",
+          "  };",
+          "",
+          "// On Sort Method",
+          "// Uses props from GridMain to set selected sort header, direction and reset page number",
+          "  const onSort = (sortHeader, sortDirection) => {",
+          "    setSortHeader(sortHeader);",
+          "    setSortDirection(sortDirection);",
+          "    setPageNumber(1);",
+          "  };",
+          "",
+          "// In the render JSX, note the use of Sort Handle on every column",
+          "",
+          "  return (",
+          `    <div className="grid-container">`,
+          "      <div>",
+          `        <div className="grid-header">`,
+          `          <div className="grid-row-gamenumber">`,
+          "            NO.",
+          "            <SortHandle,",
+          `              parameter={"gameNumber"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          `          <div className="grid-row-datetime">`,
+          "            DATE",
+          "            <SortHandle",
+          `              parameter={"dateString"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          `          <div className="grid-row-stage">`,
+          "            STAGE",
+          "            <SortHandle",
+          `              parameter={"stage_name"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          `          <div className="grid-row-location">`,
+          "            STADIUM",
+          "            <SortHandle",
+          `              parameter={"location"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          `          <div className="grid-row-venue">`,
+          "            CITY",
+          "            <SortHandle",
+          `              parameter={"venue"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          `            />`,
+          "          </div>",
+          `          <div className="grid-row-home">`,
+          "            TEAM 1",
+          "            <SortHandle",
+          `              parameter={"home_team_country"}`,
+          `              {...{`,
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          `            />`,
+          "          </div>",
+          `          <div className="grid-row-away">`,
+          "            TEAM 2",
+          "            <SortHandle",
+          `              parameter={"away_team_country"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          `          <div className="grid-row-score">`,
+          "            SCORE",
+          "            <SortHandle",
+          `              parameter={"score"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          `          <div className="grid-row-attendance">`,
+          "            ATTENDANCE",
+          "            <SortHandle",
+          `              parameter={"attendance"}`,
+          "              {...{",
+          "                sortHeader,",
+          "                onSort",
+          "              }}",
+          "            />",
+          "          </div>",
+          "        </div>",
+          `        <div className="grid-search">`,
+          "          <input",
+          `            type="text"`,
+          `            placeholder="Type to search"`,
+          "            value={searchText}",
+          "            onChange={event => onSearch(event.target.value)}",
+          "          />",
+          "        </div>",
+          "      </div>",
+          `      <div className="grid-body">`,
+          "        {matches.map(match => (",
+          "          <GridRow key={match.fifa_id} match={match} />",
+          "        ))}",
+          "        {rowsPerPage > matches.length &&",
+          "          emptyRows.map(emptyRow => (",
+          `            <div key={emptyRow} className="grid-row-empty"></div>`,
+          "          ))}",
+          "      </div>",
+          "    </div>",
+          "  );",
+          "};"
+        ]
+      },
+      {
+        id: 14,
+        type: "p",
+        data: [
+          "That should have sorted out on sorting! If we now want to search for USWNT games, we just need to search as USA and we will have the results of their 7 games. As a demo, I have sorted them based on most attendance (descending), and now the final game shows up on top. Note that this only one page. The picture below shows this scenario."
+        ]
+      },
+      { id: 15, type: "image", data: ["grid-series-3.png"] },
+      {
+        id: 16,
+        type: "post",
+        data: [
+          "That's all for the search and sort changes. We will add some basic accessibility in the next lesson. Please follow along. Thank you!"
+        ]
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "A Custom React Grid: Accessibility (Part 4)",
+
+    date: "August 23 2020",
+    tags: ["react", "grid", "table", "a11y", "accessibility"],
+    author: "Sandeep Madavu",
+    relatedBlogs: [1, 2, 3],
+    content: [
+      {
+        id: 1,
+        type: "pre",
+        data: [
+          "This is part 4 of the Grid Series. We have a grid which has data loaded from an api, and is enabled with pagination, search and sort. We will now make changes so that these functionalities are accessible for everyone."
+        ]
+      },
+      {
+        id: 2,
+        type: "p",
+        data: [
+          "There are no excuses for omiting accessibility (a11y) in web apps in this day and age. The grid that we have built should be no different. Our grid already has search functionality which is accessible. Now let's make the sorting and pagination accessible as well. The code for this is available ",
+          "https://github.com/sandeepap11/example-code/tree/gridseries-blog-4",
+          ". Let me now begin with the breakdown."
+        ]
+      },
+      {
+        id: 3,
+        type: "p",
+        data: [
+          "We want all our functionalities to be done via a keyboard as well. The pagination through textbox and the search already have this going for them. But the same can't be said about pagination through buttons and sorting. In fact, our pagination and sorting buttons are not even buttons, and no screen reader will recognise them as such. To address this we'll need to add aria-label, role, tabIndex, etc to these elements. But first, let's define a function that can be called by all buttons when the return (or enter) key is pressed, instead of just on click. We'll define a common method which recognises the code for return key and will run the action method only when it's true. Ideally, you could have this method in a common file, and then use it on all components. For now we'll define this in our Pagination component. You could have similar methods for esc key (for cancellation, closing forms, etc.) as well, or any other key for that matter. The method is as below."
+        ]
+      },
+      {
+        id: 4,
+        type: "code",
+        header: "Pagination.js Snippet",
+        data: [
+          "...",
+          "const RETURN_KEY_CODE = 13; // Key code for Enter key",
+          "export const onReturnKeyPress = (event, actionMethod) => {",
+          "if (event.keyCode === RETURN_KEY_CODE) actionMethod();",
+          "};"
+        ]
+      },
+      {
+        id: 5,
+        type: "p",
+        data: [
+          "Now that we got that out of our way, we will first use this in our PaginationControl component which we used as a common method for hopping from page to page. The code is below."
+        ]
+      },
+      {
+        id: 6,
+        type: "code",
+        header: "Pagination.js Snippet",
+        data: [
+          "...",
+          "  const PaginationControl = ({ icon, onClick, isDisabled, label }) => {",
+          "    return (",
+          "      <div",
+          "        className={",
+          "          isDisabled",
+          `            ? "pagination-page-control-disabled"`,
+          `            : "pagination-page-control"`,
+          "        }",
+          "        onClick={() => {",
+          "          if (!isDisabled) onClick();",
+          "        }}",
+          "        onKeyDown={event =>",
+          "          onReturnKeyPress(event, () => {",
+          "            if (!isDisabled) onClick();",
+          "          })",
+          "        }",
+          "        tabIndex={0}",
+          `        role="button"`,
+          "        aria-disabled={isDisabled}",
+          "        aria-label={label}",
+          "      >",
+          "        <FontAwesomeIcon icon={icon} />",
+          "      </div>",
+          "    );",
+          "  };"
+        ]
+      },
+      {
+        id: 7,
+        type: "p",
+        data: [
+          "Note that we have added an onKeyDown method which will use our onReturnKeyPress method. Now whenever the return key is pressed, the onclick method will be run thereby running the pagination button methods. In addition, we will add tabIndex, role and aria-disabled attributes to help the screen readers. We've also introduces a label prop so that a description is given for the button (e.g., go to next page), and this can be used as aria-label since our button is just an icon. The aria-label provides a better description. We'll do something similar for sorting. The changes made in SortHandle will look like below."
+        ]
+      },
+      {
+        id: 8,
+        type: "code",
+        header: "Grid.js Snippet",
+        data: [
+          "...",
+          "<div",
+          `  className="grid-geader-sort"`,
+          "  onClick={changeSortOrder}",
+          "  onKeyDown={event => onReturnKeyPress(event, changeSortOrder)}",
+          "  tabIndex={0}",
+          `  role="button"`,
+          `  aria-label={"sort by " + parameter}`,
+          ">",
+          "  <FontAwesomeIcon",
+          "    icon={",
+          "      parameter !== sortHeader",
+          "        ? faSort",
+          `        : sortColumnOrder === "ASC"`,
+          "        ? faSortUp",
+          `        : sortColumnOrder === "DESC"`,
+          "        ? faSortDown",
+          "        : faSort",
+          "    }",
+          "  />",
+          "</div>"
+        ]
+      },
+      {
+        id: 9,
+        type: "p",
+        data: [
+          "We should now be able to sort as well as paginate using shift + tab and enter. There should not be any visual difference except the outline when the buttons are focused."
+        ]
+      },
+      {
+        id: 10,
+        type: "post",
+        data: [
+          "This will conclude the series for now. I might add some additiona features to this in the future. But it will be curtains on this series for now. Thank you for reading, and good day!"
+        ]
+      }
+    ]
   }
 ];

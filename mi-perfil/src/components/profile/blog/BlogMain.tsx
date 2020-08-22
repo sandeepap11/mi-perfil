@@ -13,9 +13,7 @@ export default function BlogMain() {
     !isNullOrUndefined(searchText) ? decodeURIComponent(searchText) : ""
   );
 
-  let list = blogList.sort((blogA, blogB) =>
-    blogA.date < blogB.date ? 1 : -1
-  );
+  let list = blogList.sort((blogA, blogB) => (blogA.id < blogB.id ? 1 : -1));
 
   if (!isNullOrUndefined(tag)) {
     list = list.filter(blog => blog.tags.includes(tag));

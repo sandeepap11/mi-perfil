@@ -176,6 +176,7 @@
   display: block;
   padding-left: 2rem;
   min-height: 2.2rem;
+  word-break: break-word;
 }
 
 .profile-blog-content-postscript {
