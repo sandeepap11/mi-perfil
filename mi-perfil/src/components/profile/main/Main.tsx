@@ -5,6 +5,8 @@ import "../../../styles/profile/Main.css";
 import BlogMain from "../blog/BlogMain";
 import { routes } from "../../../utils/Config";
 import { Blog } from "../blog/Blog";
+import TravelBlogMain from "../../gallery/TravelBlogMain";
+import { TravelBlog } from "../../gallery/TravelBlog";
 
 const Main = () => {
   return (
@@ -30,6 +32,21 @@ const Main = () => {
           <Route exact path={routes.blog}>
             <div className="main-page">
               <Blog />
+            </div>
+          </Route>
+          <Route exact path={routes.travelBlogTags}>
+            <div className="main-page">
+              <TravelBlogMain />
+            </div>
+          </Route>
+          <Route exact path={routes.travelBlogSearch}>
+            <div className="main-page">
+              <TravelBlogMain />
+            </div>
+          </Route>
+          <Route exact path={routes.travelBlog}>
+            <div className="main-page">
+              <TravelBlog />
             </div>
           </Route>
           <Route>

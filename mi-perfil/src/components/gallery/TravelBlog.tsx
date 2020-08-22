@@ -1,22 +1,23 @@
 import * as React from "react";
 import { useParams } from "react-router";
-import { blogList } from "../../../utils/BlogsList";
-import BlogCard from "./BlogCard";
+import { travelBlogList } from "../../utils/TravelBlogsList";
+import TravelBlogCard from "./TravelBlogCard";
 import { isNullOrUndefined } from "util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
-export const Blog = () => {
-  const { blogId } = useParams();
-  const currentIndex = blogList.findIndex(
-    blog => blog.id.toString() === blogId.toString()
+export const TravelBlog = () => {
+  const { travelBlogId } = useParams();
+
+  const currentIndex = travelBlogList.findIndex(
+    blog => blog.id.toString() === travelBlogId.toString()
   );
 
   return (
     <div className="profile-blog-main">
-      <BlogCard isLatest={false} {...blogList[currentIndex]} />
+      <TravelBlogCard isLatest={false} {...travelBlogList[currentIndex]} />
       <div className="profile-blog-blog-main">
-        {blogList[currentIndex].content.map(contentItem => (
+        {travelBlogList[currentIndex].content.map(contentItem => (
           <BlogContentTile
             key={contentItem.id}
             type={contentItem.type}
@@ -28,18 +29,18 @@ export const Blog = () => {
           </BlogContentTile>
         ))}
       </div>
-      {blogList[currentIndex].relatedBlogs.length > 0 && (
+      {travelBlogList[currentIndex].relatedBlogs.length > 0 && (
         <div className="profile-blog-related">
           <h1>Related Articles</h1>
-          {blogList[currentIndex].relatedBlogs.map(blogIndex => {
-            const currentBlogIndex = blogList.findIndex(
+          {travelBlogList[currentIndex].relatedBlogs.map(blogIndex => {
+            const currentBlogIndex = travelBlogList.findIndex(
               blog => blog.id.toString() === blogIndex.toString()
             );
             return (
-              <BlogCard
+              <TravelBlogCard
                 key={currentBlogIndex}
                 isLatest={false}
-                {...blogList[currentBlogIndex]}
+                {...travelBlogList[currentBlogIndex]}
               />
             );
           })}
@@ -170,7 +171,7 @@ const BlogContentTile = ({
               className="profile-blog-content-image"
               key={child}
               alt={child}
-              src={require(`../../../images/profile/blog/${child}`)}
+              src={require(`../../images/profile/blog/${child}`)}
             />
           ))}
         </>
