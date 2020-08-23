@@ -5,6 +5,8 @@ import "../../../styles/profile/Blog.css";
 import { useParams } from "react-router";
 import { isNullOrUndefined } from "util";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 export default function BlogMain() {
   const { tag, searchText } = useParams();
@@ -51,6 +53,9 @@ export default function BlogMain() {
           }
         >
           <button className="profile-blog-search-submit">Search</button>
+          <div className="profile-blog-search-icon">
+            <FontAwesomeIcon icon={faSearch} />
+          </div>
         </Link>
       </div>
 
