@@ -38,7 +38,7 @@ export default function BlogMain() {
       <div className="profile-blog-search">
         <input
           type="text"
-          placeholder="Enter Text ..."
+          placeholder="Enter Search Text ..."
           className="profile-blog-search-input"
           value={searchValue}
           onChange={event => setSearchValue(event.target.value)}

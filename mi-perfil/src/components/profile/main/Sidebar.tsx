@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   faCog,
   faHome,
   faUser,
   faTrain,
+  faBars,
+  faTimes,
   IconDefinition
 } from "@fortawesome/free-solid-svg-icons";
 import MenuItem from "./MenuItem";
@@ -16,12 +18,15 @@ import { Link } from "react-router-dom";
 import { personal } from "../../../utils/Constants";
 import { routes } from "../../../utils/Config";
 import TravelBlogMain from "../../gallery/TravelBlogMain";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface SidebarProps {
   location: any;
 }
 
 const Sidebar = (props: SidebarProps) => {
+  const [showMenu, setShowMenu] = useState(false);
+
   if (
     !menuItems.reduce((result, menuItem) => {
       result = result || props.location.pathname.includes(menuItem.path);
@@ -32,31 +37,73 @@ const Sidebar = (props: SidebarProps) => {
   }
 
   return (
-    <nav className="menu-sidebar">
-      <Link
-        to={"/"}
-        style={{
-          height: "100%",
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center"
-        }}
-      >
-        <div className="menu-site-logo"></div>
-        <div className="menu-site-logo-name">
-          {personal.myName.toUpperCase()}
-        </div>
-      </Link>
+    <>
+      <nav className="menu-sidebar">
+        <Link
+          to={"/"}
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+        >
+          <div className="menu-site-logo"></div>
+          <div className="menu-site-logo-name">
+            {personal.myName.toUpperCase()}
+          </div>
+        </Link>
 
-      {menuItems.map(menuItem => (
-        <MenuItem
-          key={menuItem.id}
-          menuItem={menuItem}
-          isSelected={props.location.pathname.includes(menuItem.path)}
-        />
-      ))}
-    </nav>
+        {menuItems.map(menuItem => (
+          <MenuItem
+            key={menuItem.id}
+            menuItem={menuItem}
+            isSelected={props.location.pathname.includes(menuItem.path)}
+          />
+        ))}
+      </nav>
+      <nav className="menu-sidebar-mobile">
+        <div className="menu-sidebar-hamburger">
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={() => setShowMenu(!showMenu)}
+          />
+          {showMenu && (
+            <div className="menu-sidebar-menu-items">
+              <div className="menu-sidebar-menu-header">
+                <div className="menu-sidebar-menu-name">SANDEEP MADAVU</div>
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  onClick={() => setShowMenu(!showMenu)}
+                />
+              </div>
+            </div>
+          )}
+        </div>
+        <Link
+          to={"/"}
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center"
+          }}
+        >
+          <div className="menu-site-logo"></div>
+        </Link>
+        {menuItems
+          .filter(menuItem => menuItem.isSettings)
+          .map(menuItem => (
+            <MenuItem
+              key={menuItem.id}
+              menuItem={menuItem}
+              isSelected={props.location.pathname.includes(menuItem.path)}
+            />
+          ))}
+      </nav>
+    </>
   );
 };
 

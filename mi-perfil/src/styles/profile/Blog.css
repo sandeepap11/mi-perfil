@@ -217,3 +217,38 @@
   font-size: 3.6rem;
   color: blueviolet;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+  .profile-blog-main {
+    margin: 0;
+  }
+
+  .profile-blog-search {
+    margin: 1rem 0;
+  }
+
+  .profile-blog-card {
+    margin: 1rem 0;
+    border-radius: 0;
+  }
+
+  .profile-blog-tags {
+    flex-wrap: wrap;
+  }
+
+  .profile-blog-search-input {
+    padding: 0.5rem 1rem;
+  }
+
+  .profile-blog-search-input,
+  .profile-blog-search-submit {
+    border-radius: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+
+  .profile-blog-search a {
+    width: 30%;
+  }
+}
