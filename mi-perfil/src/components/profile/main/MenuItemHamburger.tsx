@@ -5,16 +5,19 @@ import { Link } from "react-router-dom";
 
 interface MenuItemProps {
   menuItem: MenuItemType;
-  isSelected: boolean;
+  hideMenuMethod: () => void;
 }
 
-const MenuItemHamburger = ({ menuItem }: MenuItemProps) => {
+const MenuItemHamburger = ({ menuItem, hideMenuMethod }: MenuItemProps) => {
   return (
-    <Link to={menuItem.path} style={{ height: "100%", width: "100%" }}>
-      <div className={"menu-item-main"}>
-        <div className={"menu-item-circle"}>
-          <FontAwesomeIcon icon={menuItem.iconName} />
-        </div>
+    <Link
+      to={menuItem.path}
+      style={{ height: "100%", width: "100%" }}
+      onClick={hideMenuMethod}
+    >
+      <div className={"menu-item-hamburger"}>
+        <FontAwesomeIcon icon={menuItem.iconName} />
+        <div>{menuItem.name}</div>
       </div>
     </Link>
   );

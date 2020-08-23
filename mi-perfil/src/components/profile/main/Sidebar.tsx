@@ -19,6 +19,7 @@ import { personal } from "../../../utils/Constants";
 import { routes } from "../../../utils/Config";
 import TravelBlogMain from "../../gallery/TravelBlogMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MenuItemHamburger from "./MenuItemHamburger";
 
 interface SidebarProps {
   location: any;
@@ -75,9 +76,18 @@ const Sidebar = (props: SidebarProps) => {
                 <div className="menu-sidebar-menu-name">SANDEEP MADAVU</div>
                 <FontAwesomeIcon
                   icon={faTimes}
-                  onClick={() => setShowMenu(!showMenu)}
+                  onClick={() => setShowMenu(false)}
                 />
               </div>
+              {menuItems
+                .filter(menuItem => !menuItem.isSettings)
+                .map(menuItem => (
+                  <MenuItemHamburger
+                    key={menuItem.id}
+                    menuItem={menuItem}
+                    hideMenuMethod={() => setShowMenu(false)}
+                  />
+                ))}
             </div>
           )}
         </div>

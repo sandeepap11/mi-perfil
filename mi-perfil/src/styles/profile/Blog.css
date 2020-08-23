@@ -77,12 +77,6 @@
   font-size: 1.8rem;
 }
 
-.profile-blog-info-detail {
-}
-
-.profile-blog-info-detail {
-}
-
 .profile-blog-search {
   display: flex;
   justify-content: space-between;
@@ -94,6 +88,10 @@
   border-radius: 2rem;
   border: none;
   font-weight: bold;
+}
+
+.profile-blog-search-icon {
+  display: none;
 }
 
 .profile-blog-search-input {
@@ -224,11 +222,12 @@
   }
 
   .profile-blog-search {
-    margin: 1rem 0;
+    margin: 1rem;
   }
 
   .profile-blog-card {
     margin: 1rem 0;
+    padding: 0;
     border-radius: 0;
   }
 
@@ -240,15 +239,107 @@
     padding: 0.5rem 1rem;
   }
 
-  .profile-blog-search-input,
   .profile-blog-search-submit {
+    display: none;
+  }
+
+  .profile-blog-search-input,
+  .profile-blog-search-icon {
     border-radius: 0;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
     width: 100%;
   }
 
+  .profile-blog-search-icon {
+    display: block;
+    font-size: 3rem;
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+
   .profile-blog-search a {
-    width: 30%;
+    width: 15%;
+  }
+
+  .profile-blog-blog-main {
+    margin: 0;
+    border-radius: 0;
+    padding: 0.5rem;
+  }
+
+  .profile-blog-content-preamble,
+  .profile-blog-content-preamble::first-letter {
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    padding-bottom: 2rem;
+  }
+
+  .profile-blog-content-preamble::first-letter {
+    font-size: 3rem;
+    line-height: 3.4rem;
+  }
+
+  .profile-blog-content-paragraph-main {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    padding-bottom: 2rem;
+  }
+
+  .profile-blog-content-code-main {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    margin: 0 1% 2rem 1%;
+    padding-bottom: 2rem;
+  }
+  .profile-blog-content-code-header {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .profile-blog-content-code {
+    padding-left: 1rem;
+    min-height: 1.2rem;
+  }
+
+  .profile-blog-content-postscript {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    padding-bottom: 2rem;
+  }
+
+  .profile-blog-content-aside {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    padding-bottom: 2rem;
+  }
+
+  .profile-blog-content-section-header {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    padding-bottom: 2rem;
+  }
+
+  .profile-blog-content-image {
+    width: 100%;
+    padding-bottom: 2rem;
+  }
+
+  .profile-blog-related {
+    background-color: #fff;
+    color: #000;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0;
+  }
+
+  .profile-blog-related > h1 {
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 1.8rem;
+    color: blueviolet;
   }
 }

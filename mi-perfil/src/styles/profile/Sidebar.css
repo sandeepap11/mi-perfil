@@ -83,6 +83,11 @@
   animation-timing-function: linear;
 }
 
+/* To be hidden until implemented */
+.settings-menu {
+  display: none;
+}
+
 .settings-menu-selected a {
   color: goldenrod;
 }
@@ -122,17 +127,14 @@
     height: 200px;
     position: absolute;
     z-index: 1;
-    background-color: aliceblue;
-  }
-
-  .menu-sidebar-menu-name {
-    color: #000;
+    background-color: #000;
+    color: #fff;
   }
 
   .menu-sidebar-menu-header {
-    color: #000;
     display: flex;
     justify-content: space-between;
+    margin: 0.5rem;
   }
 
   .menu-item-main {
@@ -148,5 +150,19 @@
     height: 80%;
     width: 80%;
     margin: 1rem;
+  }
+  .menu-item-hamburger {
+    display: flex;
+    color: #fff;
+    margin: 2rem 1rem;
+    font-size: 2rem;
+  }
+
+  .menu-item-hamburger > div {
+    margin-left: 2rem;
+  }
+
+  .menu-sidebar-menu-name {
+    font-weight: bold;
   }
 }
