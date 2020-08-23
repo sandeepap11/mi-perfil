@@ -21,16 +21,6 @@ const TravelBlogCard = ({
   tags,
   author
 }: BlogCardProps) => {
-  console.log({
-    isLatest,
-    id,
-    title,
-    content,
-    date,
-    tags,
-    author
-  });
-
   return (
     <div
       className={`profile-blog-card ${

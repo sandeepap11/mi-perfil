@@ -65,10 +65,10 @@ const BlogContentTile = ({
     case "pre":
       return (
         <>
-          {children.map(child => (
+          {children.map((child, index) => (
             <div
               className="profile-blog-content-preamble"
-              key={child.slice(0, 10)}
+              key={child.slice(0, 10) + index}
             >
               {child}
             </div>
@@ -78,11 +78,11 @@ const BlogContentTile = ({
     case "p":
       return (
         <div className="profile-blog-content-paragraph-main">
-          {children.map(child =>
+          {children.map((child, index) =>
             child.startsWith("http") ? (
               <a
                 className="profile-blog-content-paragraph"
-                key={child}
+                key={child + index}
                 href={child}
                 target={
                   child.includes(document.location.hostname)
@@ -101,7 +101,7 @@ const BlogContentTile = ({
             ) : (
               <p
                 className="profile-blog-content-paragraph"
-                key={child.slice(0, 10)}
+                key={child.slice(0, 10) + index}
               >
                 {child}
               </p>
@@ -125,10 +125,10 @@ const BlogContentTile = ({
     case "post":
       return (
         <>
-          {children.map(child => (
+          {children.map((child, index) => (
             <div
               className="profile-blog-content-postscript"
-              key={child.slice(0, 10)}
+              key={child.slice(0, 10) + index}
             >
               {child}
             </div>
@@ -171,7 +171,7 @@ const BlogContentTile = ({
               className="profile-blog-content-image"
               key={child}
               alt={child}
-              src={require(`../../images/profile/blog/${child}`)}
+              src={require(`../../images/travel/${child}`)}
             />
           ))}
         </>
