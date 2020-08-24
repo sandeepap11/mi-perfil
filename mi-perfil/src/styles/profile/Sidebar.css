@@ -83,13 +83,61 @@
   animation-timing-function: linear;
 }
 
-/* To be hidden until implemented */
-.settings-menu {
-  display: none;
+.settings-menu-selected {
+  color: goldenrod;
 }
 
-.settings-menu-selected a {
-  color: goldenrod;
+.setting-menu-options-main {
+  position: fixed;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+}
+
+.settings-menu-options {
+  background-color: #fff;
+  opacity: 1;
+  z-index: 2;
+  color: #000;
+  border: 0.5rem solid #000;
+  border-radius: 2rem;
+  width: 50vw;
+  padding: 2rem;
+}
+
+.settings-menu-options-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.settings-menu-options-header h1 {
+  flex: 1;
+  text-align: center;
+}
+
+.settings-menu-options ul > li {
+  padding: 0.5rem 2rem;
+  font-size: 2.4rem;
+  display: flex;
+}
+
+.settings-menu-options ul > li div {
+  border-radius: 50%;
+  height: 2.4rem;
+  width: 2.4rem;
+  border: 0.1rem solid #000;
+  margin-right: 2rem;
+}
+
+.settings-menu-options ul > li div.selected-theme {
+  background-color: #000;
 }
 
 @keyframes rotate {

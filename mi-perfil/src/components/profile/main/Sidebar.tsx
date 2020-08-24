@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  faCog,
   faHome,
   faUser,
   faTrain,
@@ -10,7 +9,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import MenuItem from "./MenuItem";
 import "../../../styles/profile/Sidebar.css";
-import IconIntro from "./IconIntro";
 import BlogMain from "../blog/BlogMain";
 import About from "../about/About";
 import { withRouter, Redirect } from "react-router";
@@ -20,6 +18,7 @@ import { routes } from "../../../utils/Config";
 import TravelBlogMain from "../../gallery/TravelBlogMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MenuItemHamburger from "./MenuItemHamburger";
+import { Settings } from "./Settings";
 
 interface SidebarProps {
   location: any;
@@ -63,6 +62,7 @@ const Sidebar = (props: SidebarProps) => {
             isSelected={props.location.pathname.includes(menuItem.path)}
           />
         ))}
+        <Settings />
       </nav>
       <nav className="menu-sidebar-mobile">
         <div className="menu-sidebar-hamburger">
@@ -79,15 +79,13 @@ const Sidebar = (props: SidebarProps) => {
                   onClick={() => setShowMenu(false)}
                 />
               </div>
-              {menuItems
-                .filter(menuItem => !menuItem.isSettings)
-                .map(menuItem => (
-                  <MenuItemHamburger
-                    key={menuItem.id}
-                    menuItem={menuItem}
-                    hideMenuMethod={() => setShowMenu(false)}
-                  />
-                ))}
+              {menuItems.map(menuItem => (
+                <MenuItemHamburger
+                  key={menuItem.id}
+                  menuItem={menuItem}
+                  hideMenuMethod={() => setShowMenu(false)}
+                />
+              ))}
             </div>
           )}
         </div>
@@ -103,15 +101,7 @@ const Sidebar = (props: SidebarProps) => {
         >
           <div className="menu-site-logo"></div>
         </Link>
-        {menuItems
-          .filter(menuItem => menuItem.isSettings)
-          .map(menuItem => (
-            <MenuItem
-              key={menuItem.id}
-              menuItem={menuItem}
-              isSelected={props.location.pathname.includes(menuItem.path)}
-            />
-          ))}
+        <Settings />
       </nav>
     </>
   );
@@ -125,7 +115,6 @@ export interface MenuItemType {
   iconName: IconDefinition;
   view: any;
   path: string;
-  isSettings: boolean;
 }
 
 export const menuItems: MenuItemType[] = [
@@ -134,31 +123,20 @@ export const menuItems: MenuItemType[] = [
     name: "Home",
     iconName: faHome,
     view: <BlogMain />,
-    path: routes.home,
-    isSettings: false
+    path: routes.home
   },
   {
     id: 2,
     name: "About",
     iconName: faUser,
     view: <About />,
-    path: routes.about,
-    isSettings: false
+    path: routes.about
   },
   {
     id: 3,
     name: "Travel",
     iconName: faTrain,
     view: <TravelBlogMain />,
-    path: routes.travel,
-    isSettings: false
-  },
-  {
-    id: 4,
-    name: "Settings",
-    iconName: faCog,
-    path: routes.settings,
-    view: <IconIntro iconName={faCog} />,
-    isSettings: true
+    path: routes.travel
   }
 ];
