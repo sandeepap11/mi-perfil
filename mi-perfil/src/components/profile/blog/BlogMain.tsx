@@ -61,6 +61,7 @@ function BlogMain({ history }: any) {
               ? "/blog"
               : `/blog/search/${encodeURIComponent(searchValue)}`
           }
+          aria-label={"search blogs"}
         >
           <button className="profile-blog-search-submit">Search</button>
           <div className="profile-blog-search-icon">

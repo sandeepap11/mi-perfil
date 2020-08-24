@@ -14,6 +14,7 @@ const MenuItemHamburger = ({ menuItem, hideMenuMethod }: MenuItemProps) => {
       to={menuItem.path}
       style={{ height: "100%", width: "100%" }}
       onClick={hideMenuMethod}
+      aria-label={menuItem.name}
     >
       <div className={"menu-item-hamburger"}>
         <FontAwesomeIcon icon={menuItem.iconName} />
