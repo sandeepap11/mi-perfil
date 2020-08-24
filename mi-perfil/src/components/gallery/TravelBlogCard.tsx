@@ -10,6 +10,7 @@ interface BlogCardProps {
   date: string;
   tags: string[];
   author: string;
+  isFromRelatedArticle?: boolean;
 }
 
 const TravelBlogCard = ({
@@ -19,7 +20,8 @@ const TravelBlogCard = ({
   content,
   date,
   tags,
-  author
+  author,
+  isFromRelatedArticle
 }: BlogCardProps) => {
   return (
     <div
@@ -32,7 +34,15 @@ const TravelBlogCard = ({
           <TravelBlogTag key={tag} tag={tag} />
         ))}
       </div>
-      <Link to={`/travel/${id}`}>
+      <Link
+        to={`/travel/${id}`}
+        onClick={() => {
+          if (isFromRelatedArticle)
+            document
+              .getElementsByClassName("profile-blog-card")[0]
+              .scrollIntoView();
+        }}
+      >
         <h1 className="profile-blog-title">{title}</h1>
       </Link>
 

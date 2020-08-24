@@ -7,6 +7,7 @@ import { routes } from "../../../utils/Config";
 import { Blog } from "../blog/Blog";
 import TravelBlogMain from "../../gallery/TravelBlogMain";
 import { TravelBlog } from "../../gallery/TravelBlog";
+import { createBrowserHistory } from "history";
 
 const Main = () => {
   return (

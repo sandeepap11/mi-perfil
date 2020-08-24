@@ -21,3 +21,7 @@ export const personal = {
     }
   ]
 };
+
+export const keyCodes = {
+  returnKey: 13
+};

@@ -41,6 +41,7 @@ export const TravelBlog = () => {
                 key={currentBlogIndex}
                 isLatest={false}
                 {...travelBlogList[currentBlogIndex]}
+                isFromRelatedArticle
               />
             );
           })}

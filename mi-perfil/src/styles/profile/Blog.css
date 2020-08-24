@@ -276,6 +276,10 @@
     padding-bottom: 2rem;
   }
 
+  .profile-blog-card-latest::before {
+    display: none;
+  }
+
   .profile-blog-content-preamble::first-letter {
     font-size: 3rem;
     line-height: 3.4rem;

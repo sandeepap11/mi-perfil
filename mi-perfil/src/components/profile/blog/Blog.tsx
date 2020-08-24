@@ -40,6 +40,7 @@ export const Blog = () => {
                 key={currentBlogIndex}
                 isLatest={false}
                 {...blogList[currentBlogIndex]}
+                isFromRelatedArticle
               />
             );
           })}

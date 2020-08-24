@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { travelBlogList } from "../../utils/TravelBlogsList";
 import TravelBlogCard from "./TravelBlogCard";
 import "../../styles/profile/Blog.css";
-import { useParams } from "react-router";
+import { useParams, withRouter } from "react-router";
 import { isNullOrUndefined } from "util";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { onReturn } from "../../utils/Common";
 
-export default function TravelBlogMain() {
+function TravelBlogMain({ history }: any) {
   const { tag, searchText } = useParams();
 
   const [searchValue, setSearchValue] = useState(
@@ -46,6 +47,15 @@ export default function TravelBlogMain() {
           className="profile-blog-search-input"
           value={searchValue}
           onChange={event => setSearchValue(event.target.value)}
+          onKeyDown={event =>
+            onReturn(event, () =>
+              history.push(
+                searchValue === ""
+                  ? "/travel"
+                  : `/travel/search/${encodeURIComponent(searchValue)}`
+              )
+            )
+          }
         />
         <Link
           to={
@@ -85,3 +95,5 @@ export default function TravelBlogMain() {
     </div>
   );
 }
+
+export default withRouter(TravelBlogMain);
