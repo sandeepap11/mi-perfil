@@ -16,13 +16,10 @@ const MenuItem = ({ menuItem, isSelected }: MenuItemProps) => {
       aria-label={menuItem.name}
     >
       <div
-        className={"menu-item-main"}
-        style={
+        className={
           isSelected
-            ? {
-                color: "goldenrod"
-              }
-            : {}
+            ? "menu-item-main menu-item-main-selected"
+            : "menu-item-main"
         }
       >
         <div

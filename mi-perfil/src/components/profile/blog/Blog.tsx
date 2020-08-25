@@ -14,7 +14,7 @@ export const Blog = () => {
 
   return (
     <div className="profile-blog-main">
-      <BlogCard isLatest={false} {...blogList[currentIndex]} />
+      <BlogCard isLatest={false} isInsideBlog {...blogList[currentIndex]} />
       <div className="profile-blog-blog-main">
         {blogList[currentIndex].content.map(contentItem => (
           <BlogContentTile

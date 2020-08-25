@@ -7,12 +7,22 @@ import { routes } from "../../../utils/Config";
 import { Blog } from "../blog/Blog";
 import TravelBlogMain from "../../gallery/TravelBlogMain";
 import { TravelBlog } from "../../gallery/TravelBlog";
-import { createBrowserHistory } from "history";
+import { ThemeContext } from "../../../App";
+import { isNullOrUndefined } from "util";
+import { themes } from "./Settings";
 
 const Main = () => {
+  const [currentTheme] = React.useContext(ThemeContext);
+
   return (
     <Router>
-      <div className="main-container">
+      <div
+        className={`main-container ${
+          isNullOrUndefined(currentTheme)
+            ? themes[0].className
+            : themes[Number(currentTheme)].className
+        }`}
+      >
         <Sidebar />
         <Switch>
           {menuItems.map(menuItem => (

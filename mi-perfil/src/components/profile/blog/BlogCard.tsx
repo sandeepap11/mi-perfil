@@ -11,6 +11,7 @@ interface BlogCardProps {
   tags: string[];
   author: string;
   isFromRelatedArticle?: boolean;
+  isInsideBlog?: boolean;
 }
 
 const BlogCard = ({
@@ -21,7 +22,8 @@ const BlogCard = ({
   date,
   tags,
   author,
-  isFromRelatedArticle
+  isFromRelatedArticle,
+  isInsideBlog
 }: BlogCardProps) => {
   return (
     <div
@@ -43,7 +45,11 @@ const BlogCard = ({
               .scrollIntoView();
         }}
       >
-        <h1 className="profile-blog-title">{title}</h1>
+        <h1
+          className={`profile-blog-title ${isInsideBlog ? "inside-blog" : ""}`}
+        >
+          {title}
+        </h1>
       </Link>
 
       {isLatest && content.length > 0 && (

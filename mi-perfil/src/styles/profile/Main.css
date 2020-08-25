@@ -16,6 +16,14 @@
   overflow: auto;
 }
 
+.light-theme .main-page {
+  background-color: #fff;
+}
+
+.dark-theme .main-page {
+  background-color: #000;
+}
+
 .main-error-page {
   height: 100vh;
   color: yellow;

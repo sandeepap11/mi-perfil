@@ -16,6 +16,19 @@
   text-decoration: none;
 }
 
+.menu-sidebar {
+  border-right: 0.1rem solid transparent;
+}
+.light-theme .menu-sidebar {
+  background-color: #fff;
+  border-right: 0.1rem solid #000;
+}
+
+.dark-theme .menu-sidebar {
+  background-color: #000;
+  border-right: 0.1rem solid #fff;
+}
+
 .menu-site-logo {
   background-image: url("../../images/logo-main.png");
   background-position: center;
@@ -25,10 +38,19 @@
   width: 40%;
   margin-top: 3rem;
 }
+
+.light-theme .menu-site-logo {
+  background-image: url("../../images/logo-black.png");
+}
+
 .menu-site-logo-name {
   line-height: 4rem;
   font-size: 1rem;
-  color: white;
+  color: #fff;
+}
+
+.light-theme .menu-site-logo-name {
+  color: #000;
 }
 
 .menu-item-main,
@@ -38,18 +60,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ddd;
-  font-size: 1.8rem;
+  color: #fff;
+  font-size: 3rem;
   transition: background-color 0.5s, color 0.5s;
 }
 
-.settings-menu a {
-  color: #ddd;
+.menu-item-main-selected {
+  color: goldenrod;
+}
+
+.light-theme .menu-item-main,
+.light-theme .menu-item-main-selected,
+.light-theme .settings-menu,
+.light-theme .settings-menu-selected {
+  color: #000;
+}
+
+.dark-theme .menu-item-main-selected,
+.dark-theme .settings-menu-selected {
+  color: #fff;
 }
 
 .menu-item-circle,
 .menu-item-circle-selected {
-  border: 2px solid transparent;
+  border: 0.2rem solid transparent;
   height: 6rem;
   width: 6rem;
   border-radius: 50%;
@@ -58,7 +92,15 @@
   align-items: center;
 }
 .menu-item-circle-selected {
-  border: 2px solid goldenrod;
+  border: 0.2rem solid goldenrod;
+}
+
+.light-theme .menu-item-circle-selected {
+  border: 0.2rem solid #000;
+}
+
+.dark-theme .menu-item-circle-selected {
+  border: 0.2rem solid #fff;
 }
 
 .menu-item-circle:hover {
@@ -73,6 +115,7 @@
   padding: 50% 0;
   font-size: 3rem;
   transition: color 0.5s;
+  cursor: pointer;
 }
 
 .settings-menu-selected {
@@ -95,7 +138,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   display: grid;
   place-items: center;
 }

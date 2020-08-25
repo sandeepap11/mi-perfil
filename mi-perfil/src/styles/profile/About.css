@@ -1,3 +1,13 @@
+.profile-about-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.profile-about-content {
+  flex: 1;
+}
+
 .profile-about-picture {
   border-radius: 50%;
   height: 20rem;
@@ -12,12 +22,24 @@
   background-repeat: no-repeat;
 }
 
+.light-theme .profile-about-picture {
+  border-color: #000;
+}
+
 .profile-about-header {
   font-size: 5rem;
   line-height: 7rem;
   text-align: center;
   color: aliceblue;
   font-style: italic;
+}
+
+.light-theme .profile-about-header {
+  color: #000;
+}
+
+.dark-theme .profile-about-header {
+  color: #fff;
 }
 
 .profile-about-text:first-of-type {
@@ -39,14 +61,12 @@
   line-height: 3rem;
 }
 
-.profile-about-main {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+.light-theme .profile-about-text {
+  color: #000;
 }
 
-.profile-about-content {
-  flex: 1;
+.dark-theme .profile-about-text {
+  color: #fff;
 }
 
 .profile-about-social {
@@ -63,6 +83,12 @@
   text-decoration: none;
   border: none;
   color: #fff;
+}
+
+.light-theme .profile-about-social a,
+.light-theme .profile-about-social a:link,
+.light-theme .profile-about-social a:visited {
+  color: #000;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {

@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faPalette, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { onReturn } from "../../../utils/Common";
 import { isNullOrUndefined } from "util";
 import { keys } from "../../../utils/Constants";
@@ -26,7 +26,7 @@ export const Settings = () => {
         className={isSettingsOpen ? "settings-menu-selected" : ""}
         onClick={() => setIsSettingsOpen(true)}
       >
-        <FontAwesomeIcon icon={faCog} />
+        <FontAwesomeIcon icon={faPalette} />
       </div>
 
       {isSettingsOpen && (
@@ -65,17 +65,20 @@ export const Settings = () => {
   );
 };
 
-const themes = [
+export const themes = [
+  {
+    id: "0",
+    name: "Default",
+    className: "default-theme"
+  },
   {
     id: "1",
-    name: "Default"
+    name: "Light",
+    className: "light-theme"
   },
   {
     id: "2",
-    name: "Light"
-  },
-  {
-    id: "3",
-    name: "Dark"
+    name: "Dark",
+    className: "dark-theme"
   }
 ];
