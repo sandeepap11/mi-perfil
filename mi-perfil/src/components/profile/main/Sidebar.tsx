@@ -19,6 +19,7 @@ import TravelBlogMain from "../../gallery/TravelBlogMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MenuItemHamburger from "./MenuItemHamburger";
 import { Settings } from "./Settings";
+import { MobileThemes } from "./MobileThemes";
 
 interface SidebarProps {
   location: any;
@@ -101,7 +102,7 @@ const Sidebar = (props: SidebarProps) => {
         >
           <div className="menu-site-logo"></div>
         </Link>
-        <Settings />
+        <MobileThemes />
       </nav>
     </>
   );

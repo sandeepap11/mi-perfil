@@ -203,12 +203,21 @@
     height: 10rem;
     width: 100%;
     padding: 1rem;
+    background-color: #fff;
+  }
+
+  .dark-theme .menu-sidebar-mobile {
+    background-color: #000;
   }
 
   .menu-sidebar-hamburger {
     display: block;
-    color: #fff;
+    color: #000;
     font-size: 3rem;
+  }
+
+  .dark-theme .menu-sidebar-hamburger {
+    color: #fff;
   }
 
   .menu-sidebar-menu-items {
@@ -217,6 +226,11 @@
     width: 100vw;
     position: absolute;
     z-index: 1;
+    background-color: #fff;
+    color: #000;
+  }
+
+  .dark-theme .menu-sidebar-menu-items {
     background-color: #000;
     color: #fff;
   }
@@ -243,9 +257,13 @@
   }
   .menu-item-hamburger {
     display: flex;
-    color: #fff;
+    color: #000;
     margin: 2rem 1rem;
     font-size: 2rem;
+  }
+
+  .dark-theme .menu-item-hamburger {
+    color: #fff;
   }
 
   .menu-item-hamburger > div {

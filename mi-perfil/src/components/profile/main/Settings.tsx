@@ -17,7 +17,7 @@ export const Settings = () => {
   };
 
   if (isNullOrUndefined(currentTheme)) {
-    setTheme("1");
+    setTheme("0");
   }
 
   return (
@@ -68,17 +68,17 @@ export const Settings = () => {
 export const themes = [
   {
     id: "0",
-    name: "Default",
-    className: "default-theme"
-  },
-  {
-    id: "1",
     name: "Light",
     className: "light-theme"
   },
   {
-    id: "2",
+    id: "1",
     name: "Dark",
     className: "dark-theme"
+  },
+  {
+    id: "2",
+    name: "Default",
+    className: "default-theme"
   }
 ];
