@@ -68,17 +68,17 @@ export const Settings = () => {
 export const themes = [
   {
     id: "0",
+    name: "Default",
+    className: "default-theme"
+  },
+  {
+    id: "1",
     name: "Light",
     className: "light-theme"
   },
   {
-    id: "1",
+    id: "2",
     name: "Dark",
     className: "dark-theme"
-  },
-  {
-    id: "2",
-    name: "Default",
-    className: "default-theme"
   }
 ];

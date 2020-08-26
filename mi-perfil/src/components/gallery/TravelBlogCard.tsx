@@ -57,7 +57,7 @@ const TravelBlogCard = ({
       )}
       <div className="profile-blog-info">
         <div className="profile-blog-info-detail">{date}</div>
-        <div className="profile-blog-info-detail">{author}</div>
+        {/* <div className="profile-blog-info-detail">{author}</div> */}
       </div>
     </div>
   );

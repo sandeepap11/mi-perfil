@@ -203,21 +203,21 @@
     height: 10rem;
     width: 100%;
     padding: 1rem;
-    background-color: #fff;
+    background-color: #000;
   }
 
-  .dark-theme .menu-sidebar-mobile {
-    background-color: #000;
+  .light-theme .menu-sidebar-mobile {
+    background-color: #fff;
   }
 
   .menu-sidebar-hamburger {
     display: block;
-    color: #000;
+    color: #fff;
     font-size: 3rem;
   }
 
-  .dark-theme .menu-sidebar-hamburger {
-    color: #fff;
+  .light-theme .menu-sidebar-hamburger {
+    color: #000;
   }
 
   .menu-sidebar-menu-items {
@@ -226,13 +226,13 @@
     width: 100vw;
     position: absolute;
     z-index: 1;
-    background-color: #fff;
-    color: #000;
-  }
-
-  .dark-theme .menu-sidebar-menu-items {
     background-color: #000;
     color: #fff;
+  }
+
+  .light-theme .menu-sidebar-menu-items {
+    background-color: #fff;
+    color: #000;
   }
 
   .menu-sidebar-menu-header {
@@ -257,13 +257,13 @@
   }
   .menu-item-hamburger {
     display: flex;
-    color: #000;
+    color: #fff;
     margin: 2rem 1rem;
     font-size: 2rem;
   }
 
-  .dark-theme .menu-item-hamburger {
-    color: #fff;
+  .light-theme .menu-item-hamburger {
+    color: #000;
   }
 
   .menu-item-hamburger > div {
@@ -272,5 +272,21 @@
 
   .menu-sidebar-menu-name {
     font-weight: bold;
+  }
+
+  .mobile-default-theme-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .mobile-default-theme-icon > div {
+    height: 50%;
+    background-color: #fff;
+  }
+
+  .mobile-default-theme-icon > div:first-of-type {
+    background-color: rebeccapurple;
   }
 }

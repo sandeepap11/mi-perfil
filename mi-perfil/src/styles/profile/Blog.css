@@ -360,6 +360,10 @@
     place-items: center;
   }
 
+  .light-theme .profile-blog-search-icon {
+    color: #000;
+  }
+
   .profile-blog-search a {
     width: 15%;
   }
