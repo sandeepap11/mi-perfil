@@ -53,7 +53,7 @@ const TravelBlogCard = ({
       </Link>
 
       {isLatest && content.length > 0 && (
-        <h2 className="profile-blog-subtitle">{content[0].data}</h2>
+        <h2 className="profile-blog-subtitle">{content[0].data[0]}</h2>
       )}
       <div className="profile-blog-info">
         <div className="profile-blog-info-detail">{date}</div>

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { onReturn } from "../../utils/Common";
+import { Helmet } from "react-helmet";
 
 function TravelBlogMain({ history }: any) {
   const { tag, searchText } = useParams();
@@ -40,6 +41,18 @@ function TravelBlogMain({ history }: any) {
 
   return (
     <div className="profile-blog-main">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Travel Blog | Sandeep Madavu</title>
+        <meta name="description" content="Travel Blogs Main Page"></meta>
+        <meta property="og:title" content="Travel Blog | Sandeep Madavu" />
+        <meta property="og:type" content="blogs" />
+        <meta
+          property="og:description"
+          content="Travel Blog | Sandeep Madavu"
+        />
+        <meta property="og:site_name" content="Sandeep Madavu"></meta>
+      </Helmet>
       <div className="profile-blog-search">
         <input
           type="text"

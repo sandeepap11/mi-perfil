@@ -6,6 +6,7 @@ import { isNullOrUndefined } from "util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { routes } from "../../utils/Config";
+import { Helmet } from "react-helmet";
 
 export const TravelBlog = () => {
   const { travelBlogId } = useParams();
@@ -20,6 +21,24 @@ export const TravelBlog = () => {
 
   return (
     <div className="profile-blog-main">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{travelBlogList[currentIndex].title}</title>
+        <meta
+          name="description"
+          content={travelBlogList[currentIndex].content[0].data[0]}
+        ></meta>
+        <meta
+          property="og:title"
+          content={travelBlogList[currentIndex].title}
+        />
+        <meta property="og:type" content="blog" />
+        <meta
+          property="og:description"
+          content={travelBlogList[currentIndex].content[0].data[0]}
+        />
+        <meta property="og:site_name" content="Sandeep Madavu"></meta>
+      </Helmet>
       <TravelBlogCard
         isLatest={false}
         isInsideBlog
