@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  faHome,
+  faNewspaper,
   faUser,
   faTrain,
   faBars,
@@ -34,7 +34,7 @@ const Sidebar = (props: SidebarProps) => {
       return result;
     }, false)
   ) {
-    return <Redirect to={"/blog"} />;
+    return <Redirect to={routes.techBlog} />;
   }
 
   return (
@@ -55,7 +55,7 @@ const Sidebar = (props: SidebarProps) => {
             {personal.myName.toUpperCase()}
           </div>
         </Link>
-
+        <Settings />
         {menuItems.map(menuItem => (
           <MenuItem
             key={menuItem.id}
@@ -63,7 +63,6 @@ const Sidebar = (props: SidebarProps) => {
             isSelected={props.location.pathname.includes(menuItem.path)}
           />
         ))}
-        <Settings />
       </nav>
       <nav className="menu-sidebar-mobile">
         <div className="menu-sidebar-hamburger">
@@ -121,23 +120,23 @@ export interface MenuItemType {
 export const menuItems: MenuItemType[] = [
   {
     id: 1,
-    name: "Home",
-    iconName: faHome,
+    name: "Tech Blog",
+    iconName: faNewspaper,
     view: <BlogMain />,
-    path: routes.home
+    path: routes.techBlog
   },
   {
     id: 2,
-    name: "About",
-    iconName: faUser,
-    view: <About />,
-    path: routes.about
-  },
-  {
-    id: 3,
-    name: "Travel",
+    name: "Travel Blog",
     iconName: faTrain,
     view: <TravelBlogMain />,
     path: routes.travel
+  },
+  {
+    id: 3,
+    name: "About Me",
+    iconName: faUser,
+    view: <About />,
+    path: routes.about
   }
 ];

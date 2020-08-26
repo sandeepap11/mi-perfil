@@ -37,7 +37,7 @@ const BlogCard = ({
         ))}
       </div>
       <Link
-        to={`/blog/${id}`}
+        to={`/techBlog/${id}`}
         onClick={() => {
           if (isFromRelatedArticle)
             document
@@ -69,7 +69,7 @@ interface BlogTagProps {
 
 export const BlogTag = ({ tag }: BlogTagProps) => (
   <div className="profile-blog-tag" key={tag}>
-    <Link to={`/blog/tags/${tag}`}>#{tag}</Link>
+    <Link to={`/techBlog/tags/${tag}`}>#{tag}</Link>
   </div>
 );
 
