@@ -12,13 +12,9 @@ export const Settings = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const setTheme = (themeId: string) => {
     setCurrentTheme(themeId);
-    sessionStorage.setItem(keys.theme, themeId);
+    localStorage.setItem(keys.theme, themeId);
     setIsSettingsOpen(false);
   };
-
-  if (isNullOrUndefined(currentTheme)) {
-    setTheme("0");
-  }
 
   return (
     <div className={"settings-menu"}>

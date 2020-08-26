@@ -9,7 +9,7 @@ export const MobileThemes = () => {
 
   const setTheme = (themeId: string) => {
     setCurrentTheme(themeId);
-    sessionStorage.setItem(keys.theme, themeId);
+    localStorage.setItem(keys.theme, themeId);
   };
 
   return (
