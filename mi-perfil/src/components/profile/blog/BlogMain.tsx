@@ -47,6 +47,10 @@ function BlogMain({ history }: any) {
         <meta property="og:type" content="blogs" />
         <meta property="og:description" content="Blog | Sandeep Madavu" />
         <meta property="og:site_name" content="Sandeep Madavu"></meta>
+        <meta
+          name="keywords"
+          content={`Sandeep Madavu, tech, react, blog`}
+        ></meta>
       </Helmet>
       <div className="profile-blog-search">
         <input

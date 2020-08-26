@@ -52,6 +52,7 @@ function TravelBlogMain({ history }: any) {
           content="Travel Blog | Sandeep Madavu"
         />
         <meta property="og:site_name" content="Sandeep Madavu"></meta>
+        <meta name="keywords" content={`Sandeep Madavu, travel, blog`}></meta>
       </Helmet>
       <div className="profile-blog-search">
         <input

@@ -16,6 +16,7 @@ export default function About() {
         <meta property="og:type" content="blog" />
         <meta property="og:description" content={lang.en.about.header} />
         <meta property="og:site_name" content="Sandeep Madavu"></meta>
+        <meta name="keywords" content="Sandeep Madavu, About"></meta>
       </Helmet>
       <div className="profile-about-content">
         <div className="profile-about-picture"></div>

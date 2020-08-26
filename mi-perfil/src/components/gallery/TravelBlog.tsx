@@ -38,6 +38,10 @@ export const TravelBlog = () => {
           content={travelBlogList[currentIndex].content[0].data[0]}
         />
         <meta property="og:site_name" content="Sandeep Madavu"></meta>
+        <meta
+          name="keywords"
+          content={`Sandeep Madavu, ${travelBlogList[currentIndex].tags}`}
+        ></meta>
       </Helmet>
       <TravelBlogCard
         isLatest={false}

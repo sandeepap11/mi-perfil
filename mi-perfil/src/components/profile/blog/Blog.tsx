@@ -34,6 +34,10 @@ export const Blog = () => {
           content={blogList[currentIndex].content[0].data[0]}
         />
         <meta property="og:site_name" content="Sandeep Madavu"></meta>
+        <meta
+          name="keywords"
+          content={`Sandeep Madavu, ${blogList[currentIndex].tags}`}
+        ></meta>
       </Helmet>
       <BlogCard isLatest={false} isInsideBlog {...blogList[currentIndex]} />
       <div className="profile-blog-blog-main">
