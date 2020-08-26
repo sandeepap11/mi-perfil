@@ -49,8 +49,8 @@ function BlogMain({ history }: any) {
             onReturn(event, () =>
               history.push(
                 searchValue === ""
-                  ? "/techBlog"
-                  : `/techBlog/search/${encodeURIComponent(searchValue)}`
+                  ? "/blog"
+                  : `/blog/search/${encodeURIComponent(searchValue)}`
               )
             )
           }
@@ -58,8 +58,8 @@ function BlogMain({ history }: any) {
         <Link
           to={
             searchValue === ""
-              ? "/techBlog"
-              : `/techBlog/search/${encodeURIComponent(searchValue)}`
+              ? "/blog"
+              : `/blog/search/${encodeURIComponent(searchValue)}`
           }
           aria-label={"search blogs"}
         >
