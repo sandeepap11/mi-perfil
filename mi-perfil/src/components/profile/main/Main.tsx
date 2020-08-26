@@ -60,6 +60,11 @@ const Main = () => {
               <TravelBlog />
             </div>
           </Route>
+          <Route exact path={routes.pageNotFound}>
+            <div className="main-page">
+              <h1 className="main-error-page">Page Not Found</h1>
+            </div>
+          </Route>
           <Route>
             <div className="main-page">
               <h1 className="main-error-page">Page Not Found</h1>

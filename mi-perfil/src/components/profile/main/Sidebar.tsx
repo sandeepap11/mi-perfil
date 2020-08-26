@@ -32,7 +32,8 @@ const Sidebar = (props: SidebarProps) => {
     !menuItems.reduce((result, menuItem) => {
       result = result || props.location.pathname.includes(menuItem.path);
       return result;
-    }, false)
+    }, false) &&
+    !props.location.pathname.includes(routes.pageNotFound)
   ) {
     return <Redirect to={routes.techBlog} />;
   }

@@ -1,10 +1,11 @@
 import * as React from "react";
-import { useParams } from "react-router";
+import { useParams, Redirect } from "react-router";
 import { travelBlogList } from "../../utils/TravelBlogsList";
 import TravelBlogCard from "./TravelBlogCard";
 import { isNullOrUndefined } from "util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { routes } from "../../utils/Config";
 
 export const TravelBlog = () => {
   const { travelBlogId } = useParams();
@@ -12,6 +13,10 @@ export const TravelBlog = () => {
   const currentIndex = travelBlogList.findIndex(
     blog => blog.id.toString() === travelBlogId.toString()
   );
+
+  if (currentIndex === -1) {
+    return <Redirect to={routes.pageNotFound} />;
+  }
 
   return (
     <div className="profile-blog-main">

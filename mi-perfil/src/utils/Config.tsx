@@ -8,5 +8,6 @@ export const routes = {
   blog: "/techBlog/:blogId",
   travelBlogTags: "/travel/tags/:tag",
   travelBlogSearch: "/travel/search/:searchText",
-  travelBlog: "/travel/:travelBlogId"
+  travelBlog: "/travel/:travelBlogId",
+  pageNotFound: "/pageNotFound"
 };
