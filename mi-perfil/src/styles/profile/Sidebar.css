@@ -200,9 +200,13 @@
   .menu-sidebar-mobile {
     display: flex;
     flex-direction: row;
-    height: 10rem;
+    height: 6rem;
     width: 100%;
     padding: 1rem;
+    background-color: rebeccapurple;
+  }
+
+  .dark-theme .menu-sidebar-mobile {
     background-color: #000;
   }
 
@@ -221,18 +225,23 @@
   }
 
   .menu-sidebar-menu-items {
-    top: 10rem;
+    top: 6rem;
     left: 0;
     width: 100vw;
     position: absolute;
     z-index: 1;
-    background-color: #000;
+    background-color: rebeccapurple;
     color: #fff;
   }
 
   .light-theme .menu-sidebar-menu-items {
     background-color: #fff;
     color: #000;
+  }
+
+  .dark-theme .menu-sidebar-menu-items {
+    background-color: #000;
+    color: #fff;
   }
 
   .menu-sidebar-menu-header {
@@ -251,19 +260,30 @@
   }
 
   .menu-site-logo {
-    height: 80%;
-    width: 80%;
-    margin: 1rem;
+    height: 100%;
+    margin: 0;
+    background-image: url("../../images/logo-png.png");
   }
+
+  .dark-theme .menu-site-logo {
+    height: 100%;
+    margin: 0;
+    background-image: url("../../images/logo-main.png");
+  }
+
   .menu-item-hamburger {
     display: flex;
-    color: #fff;
+    color: goldenrod;
     margin: 2rem 1rem;
     font-size: 2rem;
   }
 
   .light-theme .menu-item-hamburger {
     color: #000;
+  }
+
+  .dark-theme .menu-item-hamburger {
+    color: #fff;
   }
 
   .menu-item-hamburger > div {
