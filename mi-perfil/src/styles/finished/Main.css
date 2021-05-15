@@ -1,0 +1,41 @@
+.finished {
+  color: navy;
+  margin: 60px;
+  text-align: center;
+}
+
+.finished-header {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 60px;
+}
+
+.finished-header input {
+  border: none;
+  border-bottom: 1px solid;
+  font-size: 64px;
+}
+
+.finished-search {
+  font-size: 44px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 12px;
+
+  color: blueviolet;
+  text-decoration: none;
+}
+
+.finished-search {
+}
+
+.finished-answer {
+  margin: 60px;
+  font-size: 88px;
+  font-weight: bold;
+}
+
+.finished-answer > div {
+  font-size: 32px;
+  padding-bottom: 20px;
+}

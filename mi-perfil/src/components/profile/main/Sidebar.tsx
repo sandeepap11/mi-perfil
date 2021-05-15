@@ -33,6 +33,8 @@ const Sidebar = (props: SidebarProps) => {
       result = result || props.location.pathname.includes(menuItem.path);
       return result;
     }, false) &&
+    !props.location.pathname.includes(routes.pageNotFound) &&
+    !props.location.pathname.includes(routes.finished) &&
     !props.location.pathname.includes(routes.pageNotFound)
   ) {
     return <Redirect to={routes.techBlog} />;
