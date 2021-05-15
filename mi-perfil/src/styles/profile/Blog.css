@@ -248,17 +248,15 @@
 .profile-blog-content-code-main {
   font-size: 1.8rem;
   line-height: 2.2rem;
-  margin: 0 10% 4rem 10%;
-  border: 1px solid;
+  margin: 0 0 4rem 0;
   padding-bottom: 4rem;
 }
 .profile-blog-content-code-header {
   font-size: 2rem;
   line-height: 3rem;
   font-weight: bold;
-  border-bottom: 1px solid;
-  padding-left: 2rem;
-  margin-bottom: 2rem;
+  padding-left: 0;
+  padding-bottom: 1rem;
 }
 
 .profile-blog-content-code {
@@ -315,6 +313,11 @@
 .light-theme .profile-blog-related > h1,
 .dark-theme .profile-blog-related > h1 {
   color: inherit;
+}
+
+code {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
@@ -418,12 +421,10 @@
   .profile-blog-content-code-header {
     font-size: 1.6rem;
     line-height: 2.2rem;
-    padding-left: 1rem;
-    margin-bottom: 1rem;
   }
 
   .profile-blog-content-code {
-    padding-left: 1rem;
+    padding: 0 1rem;
     min-height: 1.2rem;
   }
 

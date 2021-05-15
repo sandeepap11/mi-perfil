@@ -1,17 +1,19 @@
 import * as React from "react";
+import { Helmet } from "react-helmet";
 import { useParams, Redirect } from "react-router";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco, nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { blogList } from "../../../utils/BlogsList";
 import BlogCard from "./BlogCard";
-import { isNullOrUndefined } from "util";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { routes } from "../../../utils/Config";
-import { Helmet } from "react-helmet";
+import { ThemeContext } from "../../../App";
 
 export const Blog = () => {
   const { blogId } = useParams();
   const currentIndex = blogList.findIndex(
-    blog => blog.id.toString() === blogId.toString()
+    (blog) => blog.id.toString() === blogId.toString()
   );
 
   if (currentIndex === -1) {
@@ -41,13 +43,11 @@ export const Blog = () => {
       </Helmet>
       <BlogCard isLatest={false} isInsideBlog {...blogList[currentIndex]} />
       <div className="profile-blog-blog-main">
-        {blogList[currentIndex].content.map(contentItem => (
+        {blogList[currentIndex].content.map((contentItem) => (
           <BlogContentTile
             key={contentItem.id}
             type={contentItem.type}
-            header={
-              !isNullOrUndefined(contentItem.header) ? contentItem.header : null
-            }
+            header={contentItem.header ? contentItem.header : null}
           >
             {contentItem.data}
           </BlogContentTile>
@@ -56,9 +56,9 @@ export const Blog = () => {
       {blogList[currentIndex].relatedBlogs.length > 0 && (
         <div className="profile-blog-related">
           <h1>Related Articles</h1>
-          {blogList[currentIndex].relatedBlogs.map(blogIndex => {
+          {blogList[currentIndex].relatedBlogs.map((blogIndex) => {
             const currentBlogIndex = blogList.findIndex(
-              blog => blog.id.toString() === blogIndex.toString()
+              (blog) => blog.id.toString() === blogIndex.toString()
             );
             return (
               <BlogCard
@@ -84,13 +84,17 @@ interface BlogContentTileChildren {
 const BlogContentTile = ({
   type,
   children,
-  header
+  header,
 }: BlogContentTileChildren) => {
+  const [currentTheme] = React.useContext(ThemeContext);
+
+  const isDark = Number(currentTheme) > 1;
+
   switch (type) {
     case "pre":
       return (
         <>
-          {children.map(child => (
+          {children.map((child) => (
             <div
               className="profile-blog-content-preamble"
               key={child.slice(0, 10)}
@@ -103,7 +107,7 @@ const BlogContentTile = ({
     case "p":
       return (
         <div className="profile-blog-content-paragraph-main">
-          {children.map(child =>
+          {children.map((child) =>
             child.startsWith("http") ? (
               <a
                 className="profile-blog-content-paragraph"
@@ -137,20 +141,24 @@ const BlogContentTile = ({
     case "code":
       return (
         <div className="profile-blog-content-code-main">
-          {!isNullOrUndefined(header) && (
+          {header && (
             <div className="profile-blog-content-code-header">{header}</div>
           )}
-          {children.map(child => (
-            <code className="profile-blog-content-code" key={Math.random()}>
+          {children.map((child, index) => (
+            <SyntaxHighlighter
+              key={child.slice(0, 10) + index}
+              language="javascript"
+              style={isDark ? nightOwl : docco}
+            >
               {child}
-            </code>
+            </SyntaxHighlighter>
           ))}
         </div>
       );
     case "post":
       return (
         <>
-          {children.map(child => (
+          {children.map((child) => (
             <div
               className="profile-blog-content-postscript"
               key={child.slice(0, 10)}
@@ -163,7 +171,7 @@ const BlogContentTile = ({
     case "aside":
       return (
         <>
-          {children.map(child => (
+          {children.map((child) => (
             <aside
               className="profile-blog-content-aside"
               key={child.slice(0, 10)}
@@ -177,7 +185,7 @@ const BlogContentTile = ({
     case "sectionhead":
       return (
         <>
-          {children.map(child => (
+          {children.map((child) => (
             <h1
               className="profile-blog-content-section-header"
               key={child.slice(0, 10)}
@@ -191,7 +199,7 @@ const BlogContentTile = ({
     case "image":
       return (
         <>
-          {children.map(child => (
+          {children.map((child) => (
             <img
               className="profile-blog-content-image"
               key={child}
