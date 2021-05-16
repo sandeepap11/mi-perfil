@@ -8,8 +8,6 @@ export const ThemeContext = React.createContext<any>(null);
 function App() {
   const theme = localStorage.getItem(keys.theme);
 
-  console.log({ theme });
-
   useEffect(() => {
     if (!theme) {
       localStorage.setItem(keys.theme, "0");
