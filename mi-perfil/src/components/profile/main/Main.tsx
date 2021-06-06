@@ -10,6 +10,7 @@ import { TravelBlog } from "../../gallery/TravelBlog";
 import { ThemeContext } from "../../../App";
 import { isNullOrUndefined } from "util";
 import { themes } from "./Settings";
+import Finished from "../../finished/Finished";
 
 const Main = () => {
   const [currentTheme] = React.useContext(ThemeContext);
@@ -25,7 +26,7 @@ const Main = () => {
       >
         <Sidebar />
         <Switch>
-          {menuItems.map(menuItem => (
+          {menuItems.map((menuItem) => (
             <Route key={menuItem.id} exact path={menuItem.path}>
               <div className="main-page">{menuItem.view}</div>
             </Route>
@@ -60,6 +61,16 @@ const Main = () => {
               <TravelBlog />
             </div>
           </Route>
+          <Route exact path={routes.finished}>
+            <div className="main-page">
+              <Finished />
+            </div>
+          </Route>
+          <Route exact path={routes.finishedSearch}>
+            <div className="main-page">
+              <Finished />
+            </div>
+          </Route>
           <Route exact path={routes.pageNotFound}>
             <div className="main-page">
               <h1 className="main-error-page">Page Not Found</h1>
@@ -72,6 +83,7 @@ const Main = () => {
           </Route>
         </Switch>
       </div>
+      <Switch></Switch>
     </Router>
   );
 };

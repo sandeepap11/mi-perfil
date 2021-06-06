@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { onReturn } from "../../../utils/Common";
-import { isNullOrUndefined } from "util";
 import { keys } from "../../../utils/Constants";
 import { ThemeContext } from "../../../App";
 
@@ -36,14 +35,16 @@ export const Settings = () => {
               />
             </div>
             <ul role="radiogroup">
-              {themes.map(theme => (
+              {themes.map((theme) => (
                 <li
                   key={theme.id}
                   onClick={() => setTheme(theme.id)}
                   role="radio"
                   aria-checked={currentTheme === theme.id}
                   tabIndex={0}
-                  onKeyDown={event => onReturn(event, () => setTheme(theme.id))}
+                  onKeyDown={(event) =>
+                    onReturn(event, () => setTheme(theme.id))
+                  }
                 >
                   <div
                     className={
@@ -65,16 +66,16 @@ export const themes = [
   {
     id: "0",
     name: "Default",
-    className: "default-theme"
+    className: "default-theme",
   },
   {
     id: "1",
     name: "Light",
-    className: "light-theme"
+    className: "light-theme",
   },
   {
     id: "2",
     name: "Dark",
-    className: "dark-theme"
-  }
+    className: "dark-theme",
+  },
 ];

@@ -9,5 +9,7 @@ export const routes = {
   travelBlogTags: "/travel/tags/:tag",
   travelBlogSearch: "/travel/search/:searchText",
   travelBlog: "/travel/:travelBlogId",
+  finished: "/finished",
+  finishedSearch: "/finished/:searchText",
   pageNotFound: "/pageNotFound"
 };
