@@ -148,6 +148,7 @@ const BlogContentTile = ({
             <SyntaxHighlighter
               key={child.slice(0, 10) + index}
               language="javascript"
+              wrapLongLines
               style={isDark ? nightOwl : docco}
             >
               {child}
